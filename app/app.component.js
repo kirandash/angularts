@@ -18,13 +18,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            //Decorator
             AppComponent = (function () {
                 function AppComponent() {
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1>'
+                        template: '<h1>Hello Angular</h1>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

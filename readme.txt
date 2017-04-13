@@ -6,3 +6,5 @@ npm install
 package.json - "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ", makes typescript run in watch mode and run the lite mode of app in chrome.
 
 npm start; -> run the lite browser
+
+4 Building Blocks - Components, Directives, Services and Routes

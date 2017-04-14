@@ -21,12 +21,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             // Call the decorator - with @ before it. All decorators are fns so they must be called
             CoursesComponent = (function () {
                 function CoursesComponent() {
+                    // a component decorator is used to tell angular that this class is a component
+                    this.title = "The title of courses page";
+                    this.courses = ["Course1", "Course2", "Course3"];
                 }
                 CoursesComponent = __decorate([
                     // In angular2 core module there is a Component decorator - so it is included
                     core_1.Component({
                         selector: 'courses',
-                        template: '<h2>Courses</h2>' // template for the component
+                        template: "\n\t\t\t\t<h2>Courses</h2>\n\t\t\t\t{{ title }}\n\t\t\t\t<ul>\n\t\t\t\t\t<li *ngFor=\"#course of courses\">\n\t\t\t\t\t{{ course }}\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t  " // template for the component - back tick allows us to have multiple lines
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CoursesComponent);

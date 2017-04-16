@@ -23,3 +23,5 @@ Interpolation {{}} - is used to display properties of a component in the view
 Angular translates interpolations into property bindings
 Out of [attr] and bind-attr use one that is consistent. (say [])
 out of [] and {{}} - use {{}} for rendering text and for attributes use []
+
+for binding events use (event) or on-event - preferred - (event)

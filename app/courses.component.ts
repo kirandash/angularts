@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core'; // In angular2 core module there is a Component decorator - so it is included
 // import CourseService from course.service.ts
 import {CourseService} from './course.service';
+// import InputFocusDirective
+import {InputFocusDirective} from './input-focus.directive';
 
 // Call the decorator - with @ before it. All decorators are fns so they must be called
 @Component({
@@ -8,6 +10,7 @@ import {CourseService} from './course.service';
 	template: `
 				<h2>Courses</h2>
 				{{ title }}
+				<input type="text" inputFocus>
 				<ul>
 					<li *ngFor="#course of courses">
 					{{ course }}
@@ -15,7 +18,8 @@ import {CourseService} from './course.service';
 				</ul>
 			  `, // template for the component - back tick allows us to have multiple lines
 			  // ngFor to iterate through object
-	providers: [CourseService]
+	providers: [CourseService],
+	directives: [InputFocusDirective]
 })
 
 // Create a class

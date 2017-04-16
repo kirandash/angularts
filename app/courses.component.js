@@ -1,4 +1,4 @@
-System.register(['angular2/core', './course.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './course.service', './input-focus.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, course_service_1;
+    var core_1, course_service_1, input_focus_directive_1;
     var CoursesComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
             },
             function (course_service_1_1) {
                 course_service_1 = course_service_1_1;
+            },
+            function (input_focus_directive_1_1) {
+                input_focus_directive_1 = input_focus_directive_1_1;
             }],
         execute: function() {
             // Call the decorator - with @ before it. All decorators are fns so they must be called
@@ -33,9 +36,10 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'courses',
-                        template: "\n\t\t\t\t<h2>Courses</h2>\n\t\t\t\t{{ title }}\n\t\t\t\t<ul>\n\t\t\t\t\t<li *ngFor=\"#course of courses\">\n\t\t\t\t\t{{ course }}\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t  ",
+                        template: "\n\t\t\t\t<h2>Courses</h2>\n\t\t\t\t{{ title }}\n\t\t\t\t<input type=\"text\" inputFocus>\n\t\t\t\t<ul>\n\t\t\t\t\t<li *ngFor=\"#course of courses\">\n\t\t\t\t\t{{ course }}\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t  ",
                         // ngFor to iterate through object
-                        providers: [course_service_1.CourseService]
+                        providers: [course_service_1.CourseService],
+                        directives: [input_focus_directive_1.InputFocusDirective]
                     }), 
                     __metadata('design:paramtypes', [course_service_1.CourseService])
                 ], CoursesComponent);

@@ -12,6 +12,7 @@ import {Component} from 'angular2/core';
 				<div>
 				<h1>{{title2}}</h1>
 				<button class="btn btn-primary" [class.active]="isActive">Submit</button>
+				<button class="btn btn-primary" [class.active]="!isActive">Submit</button>
 				</div>
 			`
 })

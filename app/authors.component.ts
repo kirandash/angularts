@@ -16,12 +16,13 @@ import {AuthorService} from './author.service';
 				</ul>
 			`,
 	providers: [AuthorService]		
+	// Providers - teaches angular to create AuthorService that is being injected to the component via dependency injection
 })// Do not use semicolon here
 
 // Create a class for authors component with all the properties which then can be used on other modules.
 export class AuthorsComponent {
 	title = "Title for the main authors page";
-	authors;
+	authors: string[];
 
 	// Reference the AuthorService - dependency injection
 	constructor(authorService: AuthorService){

@@ -28,7 +28,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'binding',
-                        template: "\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<h1 [textContent]=\"title\"></h1>\n\t\t\t\t<h1 bind-textContent=\"title\"></h1>\n\t\t\t\t<img src=\"{{imageUrl}}\">\n\t\t\t\t<img [src]=\"imageUrl\">\n\t\t\t\t<img bind-src=\"imageUrl\">\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title2}}</h1>\n\t\t\t\t<button class=\"btn btn-primary\" [class.active]=\"isActive\">Submit</button>\n\t\t\t\t<button class=\"btn btn-primary\" [class.active]=\"!isActive\">Submit</button>\n\t\t\t\t</div>\n\t\t\t"
+                        template: "\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<h1 [textContent]=\"title\"></h1>\n\t\t\t\t<h1 bind-textContent=\"title\"></h1>\n\t\t\t\t<img src=\"{{imageUrl}}\">\n\t\t\t\t<img [src]=\"imageUrl\">\n\t\t\t\t<img bind-src=\"imageUrl\">\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title2}}</h1>\n\t\t\t\t<button class=\"btn btn-primary\" \n\t\t\t\t  [style.backgroundColor] = \"isActive ? 'blue' : 'red'\"\n\t\t\t\t  [class.active]=\"isActive\">Submit</button>\n\t\t\t\t<button class=\"btn btn-primary\" [class.active]=\"!isActive\">Submit</button>\n\t\t\t\t</div>\n\t\t\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

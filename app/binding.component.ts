@@ -11,7 +11,9 @@ import {Component} from 'angular2/core';
 				<img bind-src="imageUrl">
 				<div>
 				<h1>{{title2}}</h1>
-				<button class="btn btn-primary" [class.active]="isActive">Submit</button>
+				<button class="btn btn-primary" 
+				  [style.backgroundColor] = "isActive ? 'blue' : 'red'"
+				  [class.active]="isActive">Submit</button>
 				<button class="btn btn-primary" [class.active]="!isActive">Submit</button>
 				</div>
 			`

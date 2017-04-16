@@ -1,5 +1,7 @@
 // Import the Component decorator from the angular core module
 import {Component} from 'angular2/core';
+// Import author service
+import {AuthorService} from './author.service';
 
 // Call the Component Decorator - with an object
 @Component({
@@ -12,11 +14,18 @@ import {Component} from 'angular2/core';
 						{{author}}
 					</li>
 				</ul>
-			`
-})
+			`,
+	providers: [AuthorService]		
+})// Do not use semicolon here
 
 // Create a class for authors component with all the properties which then can be used on other modules.
 export class AuthorsComponent {
 	title = "Title for the main authors page";
-	authors = ["Author 1","Author 2","Author 3","Author 4"];
+	authors;
+
+	// Reference the AuthorService - dependency injection
+	constructor(authorService: AuthorService){
+		// dependency injection takes a class and injects a reference to it in the coursescomponent
+		this.authors = authorService.getAuthors();
+	}
 }

@@ -8,3 +8,10 @@ package.json - "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ", makes 
 npm start; -> run the lite browser
 
 4 Building Blocks - Components, Directives, Services and Routes
+
+#Fundamental steps
+1. Create a component
+2. Set the properties
+3. Use interpolation {{}}
+4. Create a service
+5. Use dependency injection

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,37 +10,31 @@ System.register(['angular2/core', './courses.component', './authors.component'],
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1;
-    var AppComponent;
+    var core_1;
+    var AuthorsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (courses_component_1_1) {
-                courses_component_1 = courses_component_1_1;
-            },
-            function (authors_component_1_1) {
-                authors_component_1 = authors_component_1_1;
             }],
         execute: function() {
-            // Decorator fn calling the object and using an object
-            AppComponent = (function () {
-                function AppComponent() {
+            // Call the Component Decorator - with an object
+            AuthorsComponent = (function () {
+                function AuthorsComponent() {
+                    this.title = "Title for the main authors page";
+                    this.authors = ["Author 1", "Author 2", "Author 3", "Author 4"];
                 }
-                AppComponent = __decorate([
-                    // path of the module containing authors component
+                AuthorsComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<h1>Hello Angular</h1><courses></courses><authors></authors>',
-                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent]
+                        selector: 'authors',
+                        template: "\n\t\t\t\t<h2>Authors</h2>\n\t\t\t\t{{title}}\n\t\t\t\t<ul>\n\t\t\t\t\t<li *ngFor=\"#author of authors\">\n\t\t\t\t\t\t{{author}}\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], AuthorsComponent);
+                return AuthorsComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("AuthorsComponent", AuthorsComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=authors.component.js.map

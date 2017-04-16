@@ -21,12 +21,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             BindingComponent = (function () {
                 function BindingComponent() {
                     this.title = "Learn Binding";
-                    this.imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Hyderabad_Financial_district%2CIndia.jpg/680px-Hyderabad_Financial_district%2CIndia.jpg";
+                    this.title2 = "Binding class";
+                    this.imageUrl = "http://www.hlgjyl888.com/data/wallpapers/57/WDF_1035782.png";
+                    this.isActive = false;
                 }
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'binding',
-                        template: "\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<h1 [textContent]=\"title\"></h1>\n\t\t\t\t<h1 bind-textContent=\"title\"></h1>\n\t\t\t\t<img src=\"{{imageUrl}}\">\n\t\t\t\t<img [src]=\"imageUrl\">\n\t\t\t\t<img bind-src=\"imageUrl\">\n\t\t\t"
+                        template: "\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<h1 [textContent]=\"title\"></h1>\n\t\t\t\t<h1 bind-textContent=\"title\"></h1>\n\t\t\t\t<img src=\"{{imageUrl}}\">\n\t\t\t\t<img [src]=\"imageUrl\">\n\t\t\t\t<img bind-src=\"imageUrl\">\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title2}}</h1>\n\t\t\t\t<button class=\"btn btn-primary\" [class.active]=\"isActive\">Submit</button>\n\t\t\t\t</div>\n\t\t\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

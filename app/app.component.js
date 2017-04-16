@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './authors.component', './binding.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './authors.component'],
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1;
+    var core_1, courses_component_1, authors_component_1, binding_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', './courses.component', './authors.component'],
             },
             function (authors_component_1_1) {
                 authors_component_1 = authors_component_1_1;
+            },
+            function (binding_component_1_1) {
+                binding_component_1 = binding_component_1_1;
             }],
         execute: function() {
             // Decorator fn calling the object and using an object
@@ -29,11 +32,10 @@ System.register(['angular2/core', './courses.component', './authors.component'],
                 function AppComponent() {
                 }
                 AppComponent = __decorate([
-                    // path of the module containing authors component
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>Hello Angular</h1><courses></courses><authors></authors>',
-                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent]
+                        template: '<h1>Hello Angular</h1><courses></courses><authors></authors><binding></binding>',
+                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, binding_component_1.BindingComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

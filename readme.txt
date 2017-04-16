@@ -1,3 +1,5 @@
+## Start With Angular 2 ##
+
 npm install -g typescript
 npm install -g typings
 Add angular 2 seed folder as starting point to project
@@ -9,9 +11,15 @@ npm start; -> run the lite browser
 
 4 Building Blocks - Components, Directives, Services and Routes
 
-#Fundamental steps
+##Fundamental steps##
 1. Create a component
 2. Set the properties
 3. Use interpolation {{}}
 4. Create a service
 5. Use dependency injection
+
+## Displaying_Data_and_Handling_Events ##
+Interpolation {{}} - is used to display properties of a component in the view
+Angular translates interpolations into property bindings
+Out of [attr] and bind-attr use one that is consistent. (say [])
+out of [] and {{}} - use {{}} for rendering text and for attributes use []

@@ -25,3 +25,9 @@ Out of [attr] and bind-attr use one that is consistent. (say [])
 out of [] and {{}} - use {{}} for rendering text and for attributes use []
 
 for binding events use (event) or on-event - preferred - (event)
+
+<input type="text" [value]="inputvalue" (input)="title4 = $event.target.value">
+<input type="text" [(ngModel)]="title4"> shortcut - bind property and event with ngModel directive
+<input type="text" bindon-ngModel="title4"> - bind property and event with ngModel directive
+
+Angular does not have two way binding - it is just property and event binding. Angular uses flux structure which only supports one way binding

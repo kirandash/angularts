@@ -21,6 +21,13 @@ import {Component} from 'angular2/core';
 				<button (click)="onClick($event)">Submit</button>
 				<button on-click="onClick()">Submit</button>
 				</div>
+				<div>
+				<h1>{{title4}}</h1>
+				<input type="text" [value]="inputvalue" (input)="title4 = $event.target.value">
+				<input type="text" [(ngModel)]="title4">
+				<input type="text" bindon-ngModel="title4">
+				<input type="button" (click)="title4 = ''" value="Clear">
+				</div>
 			`
 })
 
@@ -28,6 +35,8 @@ export class BindingComponent{
 	title = "Learn Binding";
 	title2 = "Binding class";
 	title3 = "Binding events";
+	title4 = "Two way binding";
+	inputvalue = "Modify the title here";
 	imageUrl = "http://www.hlgjyl888.com/data/wallpapers/57/WDF_1035782.png";
 	isActive = false;
 	onClick($event){

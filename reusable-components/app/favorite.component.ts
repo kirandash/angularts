@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 
 @Component({
 	selector: 'favorite',
@@ -11,12 +11,13 @@ import {Component} from 'angular2/core';
 				(click)="starClick()" style="font-size:30px;">
 				</i>
 				</div>
-			`
+			`,
+	inputs: ['starActive:star-active']// alternate to using @Input decorator
 })
 
 export class BindingComponent{
 	title = "Star rating";
-	starActive = false;
+	@Input('star-active') starActive = false; // Private property is made input property
 	onClick($event){
 		// events propagate from bottom to up in DOM tree
 		$event.stopPropagation();

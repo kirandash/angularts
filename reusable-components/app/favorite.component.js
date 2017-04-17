@@ -21,7 +21,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             BindingComponent = (function () {
                 function BindingComponent() {
                     this.title = "Star rating";
-                    this.starActive = false;
+                    this.starActive = false; // Private property is made input property
                 }
                 BindingComponent.prototype.onClick = function ($event) {
                     // events propagate from bottom to up in DOM tree
@@ -34,10 +34,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 BindingComponent.prototype.starClick = function () {
                     this.starActive = !this.starActive;
                 };
+                __decorate([
+                    core_1.Input('star-active'), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "starActive", void 0);
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'favorite',
-                        template: "\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<i class=\"glyphicon\" \n\t\t\t\t[class.glyphicon-star-empty]=\"!starActive\"\n\t\t\t\t[class.glyphicon-star]=\"starActive\"\n\t\t\t\t(click)=\"starClick()\" style=\"font-size:30px;\">\n\t\t\t\t</i>\n\t\t\t\t</div>\n\t\t\t"
+                        template: "\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<i class=\"glyphicon\" \n\t\t\t\t[class.glyphicon-star-empty]=\"!starActive\"\n\t\t\t\t[class.glyphicon-star]=\"starActive\"\n\t\t\t\t(click)=\"starClick()\" style=\"font-size:30px;\">\n\t\t\t\t</i>\n\t\t\t\t</div>\n\t\t\t",
+                        inputs: ['starActive:star-active'] // alternate to using @Input decorator
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

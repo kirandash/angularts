@@ -5,10 +5,15 @@ import {BindingComponent} from './favorite.component'; // path of the module con
 // Decorator fn calling the object and using an object
 @Component({
     selector: 'my-app',
-    template: '<favorite></favorite>',
+    template: '<favorite [star-active]="post.starActive"></favorite>',
     directives: [BindingComponent]
     // Directive - a class that allows us to extend of control DOM (and not part of standard html)
 })
 
 // export class - AppComponent which is the root of our application - takes control of entire app/page
-export class AppComponent { }
+export class AppComponent { 
+	post = {
+		title: "Title",
+		starActive: true
+	}// Post data assumed to come from service
+}

@@ -24,12 +24,16 @@ System.register(['angular2/core', './favorite.component'], function(exports_1, c
             // Decorator fn calling the object and using an object
             AppComponent = (function () {
                 function AppComponent() {
+                    this.post = {
+                        title: "Title",
+                        starActive: true
+                    }; // Post data assumed to come from service
                 }
                 AppComponent = __decorate([
                     // path of the module containing courses component
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<favorite></favorite>',
+                        template: '<favorite [star-active]="post.starActive"></favorite>',
                         directives: [favorite_component_1.BindingComponent]
                     }), 
                     __metadata('design:paramtypes', [])

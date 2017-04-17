@@ -29,11 +29,14 @@ System.register(['angular2/core', './favorite.component'], function(exports_1, c
                         starActive: true
                     }; // Post data assumed to come from service
                 }
+                AppComponent.prototype.onStarChange = function ($event) {
+                    console.log($event);
+                };
                 AppComponent = __decorate([
                     // path of the module containing courses component
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<favorite [star-active]="post.starActive"></favorite>',
+                        template: '<favorite [star-active]="post.starActive" (change)="onStarChange($event)"></favorite>',
                         directives: [favorite_component_1.BindingComponent]
                     }), 
                     __metadata('design:paramtypes', [])

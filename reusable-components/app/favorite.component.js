@@ -22,7 +22,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function BindingComponent() {
                     this.title = "Star rating";
                     this.starActive = false; // Private property is made input property
+                    // Alias in braket is optional
+                    //@Output('starChange') change = new EventEmitter(); // EventEmitter is a class used to publish events
+                    this.change = new core_1.EventEmitter();
                 }
+                // This is a private property. in order for it to be used outside the module - we must use the @Output decorator
                 BindingComponent.prototype.onClick = function ($event) {
                     // events propagate from bottom to up in DOM tree
                     $event.stopPropagation();
@@ -33,16 +37,22 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 };
                 BindingComponent.prototype.starClick = function () {
                     this.starActive = !this.starActive;
+                    this.change.emit({ newValue: this.starActive }); // publish an event and pass an object with current properties or pass null
                 };
                 __decorate([
                     core_1.Input('star-active'), 
                     __metadata('design:type', Object)
                 ], BindingComponent.prototype, "starActive", void 0);
+                __decorate([
+                    // Private property is made input property
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "change", void 0);
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'favorite',
                         template: "\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<i class=\"glyphicon\" \n\t\t\t\t[class.glyphicon-star-empty]=\"!starActive\"\n\t\t\t\t[class.glyphicon-star]=\"starActive\"\n\t\t\t\t(click)=\"starClick()\" style=\"font-size:30px;\">\n\t\t\t\t</i>\n\t\t\t\t</div>\n\t\t\t",
-                        inputs: ['starActive:star-active'] // alternate to using @Input decorator
+                        inputs: ['starActive:star-active'],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

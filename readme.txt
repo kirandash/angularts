@@ -18,7 +18,7 @@ npm start; -> run the lite browser
 4. Create a service
 5. Use dependency injection
 
-## Displaying_Data_and_Handling_Events ##
+## Displaying_Data_and_Handling_Events (Property, class, style, event, two way binding) ##
 Interpolation {{}} - is used to display properties of a component in the view
 Angular translates interpolations into property bindings
 Out of [attr] and bind-attr use one that is consistent. (say [])
@@ -31,3 +31,5 @@ for binding events use (event) or on-event - preferred - (event)
 <input type="text" bindon-ngModel="title4"> - bind property and event with ngModel directive
 
 Angular does not have two way binding - it is just property and event binding. Angular uses flux structure which only supports one way binding
+
+Always try to keep the logic in component - good for unit testing

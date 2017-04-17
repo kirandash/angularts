@@ -24,9 +24,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.title2 = "Binding class";
                     this.title3 = "Binding events";
                     this.title4 = "Two way binding";
+                    this.title5 = "Star rating";
                     this.inputvalue = "Modify the title here";
                     this.imageUrl = "http://www.hlgjyl888.com/data/wallpapers/57/WDF_1035782.png";
                     this.isActive = false;
+                    this.starActive = false;
                 }
                 BindingComponent.prototype.onClick = function ($event) {
                     // events propagate from bottom to up in DOM tree
@@ -36,10 +38,13 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 BindingComponent.prototype.onDivClick = function () {
                     console.log("clicked on div");
                 };
+                BindingComponent.prototype.starClick = function () {
+                    this.starActive = !this.starActive;
+                };
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'binding',
-                        template: "\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<h1 [textContent]=\"title\"></h1>\n\t\t\t\t<h1 bind-textContent=\"title\"></h1>\n\t\t\t\t<img src=\"{{imageUrl}}\">\n\t\t\t\t<img [src]=\"imageUrl\">\n\t\t\t\t<img bind-src=\"imageUrl\">\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title2}}</h1>\n\t\t\t\t<button class=\"btn btn-primary\" \n\t\t\t\t  [style.backgroundColor] = \"isActive ? 'blue' : 'red'\"\n\t\t\t\t  [class.active]=\"isActive\">Submit</button>\n\t\t\t\t<button class=\"btn btn-primary\" [class.active]=\"!isActive\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div (click)=\"onDivClick()\">\n\t\t\t\t<h1>{{title3}}</h1>\n\t\t\t\t<button (click)=\"onClick($event)\">Submit</button>\n\t\t\t\t<button on-click=\"onClick()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title4}}</h1>\n\t\t\t\t<input type=\"text\" [value]=\"inputvalue\" (input)=\"title4 = $event.target.value\">\n\t\t\t\t<input type=\"text\" [(ngModel)]=\"title4\">\n\t\t\t\t<input type=\"text\" bindon-ngModel=\"title4\">\n\t\t\t\t<input type=\"button\" (click)=\"title4 = ''\" value=\"Clear\">\n\t\t\t\t</div>\n\t\t\t"
+                        template: "\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<h1 [textContent]=\"title\"></h1>\n\t\t\t\t<h1 bind-textContent=\"title\"></h1>\n\t\t\t\t<img src=\"{{imageUrl}}\">\n\t\t\t\t<img [src]=\"imageUrl\">\n\t\t\t\t<img bind-src=\"imageUrl\">\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title2}}</h1>\n\t\t\t\t<button class=\"btn btn-primary\" \n\t\t\t\t  [style.backgroundColor] = \"isActive ? 'blue' : 'red'\"\n\t\t\t\t  [class.active]=\"isActive\">Submit</button>\n\t\t\t\t<button class=\"btn btn-primary\" [class.active]=\"!isActive\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div (click)=\"onDivClick()\">\n\t\t\t\t<h1>{{title3}}</h1>\n\t\t\t\t<button (click)=\"onClick($event)\">Submit</button>\n\t\t\t\t<button on-click=\"onClick()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title4}}</h1>\n\t\t\t\t<input type=\"text\" [value]=\"inputvalue\" (input)=\"title4 = $event.target.value\">\n\t\t\t\t<input type=\"text\" [(ngModel)]=\"title4\">\n\t\t\t\t<input type=\"text\" bindon-ngModel=\"title4\">\n\t\t\t\t<input type=\"button\" (click)=\"title4 = ''\" value=\"Clear\">\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title5}}</h1>\n\t\t\t\t<i class=\"glyphicon\" \n\t\t\t\t[class.glyphicon-star-empty]=\"!starActive\"\n\t\t\t\t[class.glyphicon-star]=\"starActive\"\n\t\t\t\t(click)=\"starClick()\" style=\"font-size:30px;\">\n\t\t\t\t</i>\n\t\t\t\t</div>\n\t\t\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

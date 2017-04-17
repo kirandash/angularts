@@ -28,6 +28,14 @@ import {Component} from 'angular2/core';
 				<input type="text" bindon-ngModel="title4">
 				<input type="button" (click)="title4 = ''" value="Clear">
 				</div>
+				<div>
+				<h1>{{title5}}</h1>
+				<i class="glyphicon" 
+				[class.glyphicon-star-empty]="!starActive"
+				[class.glyphicon-star]="starActive"
+				(click)="starClick()" style="font-size:30px;">
+				</i>
+				</div>
 			`
 })
 
@@ -36,9 +44,11 @@ export class BindingComponent{
 	title2 = "Binding class";
 	title3 = "Binding events";
 	title4 = "Two way binding";
+	title5 = "Star rating";
 	inputvalue = "Modify the title here";
 	imageUrl = "http://www.hlgjyl888.com/data/wallpapers/57/WDF_1035782.png";
 	isActive = false;
+	starActive = false;
 	onClick($event){
 		// events propagate from bottom to up in DOM tree
 		$event.stopPropagation();
@@ -46,5 +56,8 @@ export class BindingComponent{
 	}
 	onDivClick(){
 		console.log("clicked on div");
+	}
+	starClick(){
+		this.starActive = !this.starActive;
 	}
 }

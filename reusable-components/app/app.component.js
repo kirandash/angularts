@@ -26,8 +26,12 @@ System.register(['angular2/core', './favorite.component'], function(exports_1, c
                 function AppComponent() {
                     this.post = {
                         title: "Title",
-                        starActive: true
+                        starActive: false
                     }; // Post data assumed to come from service
+                    this.tweet = {
+                        starResult: 10,
+                        heartActive: true
+                    };
                 }
                 AppComponent.prototype.onStarChange = function ($event) {
                     console.log($event);
@@ -36,7 +40,7 @@ System.register(['angular2/core', './favorite.component'], function(exports_1, c
                     // path of the module containing courses component
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<favorite [star-active]=\"post.starActive\" (change)=\"onStarChange($event)\"></favorite>\n\t\t<i class=\"glyphicon glyphicon-star\"></i>\n    \t",
+                        template: "\n\t\t<i class=\"glyphicon glyphicon-star\"></i>\n    \t<favorite [star-active]=\"post.starActive\" [heart-active]=\"tweet.heartActive\" [star-result]=\"tweet.starResult\" (change)=\"onStarChange($event)\"></favorite>\n    \t",
                         directives: [favorite_component_1.BindingComponent],
                         // Directive - a class that allows us to extend of control DOM (and not part of standard html)
                         styles: [

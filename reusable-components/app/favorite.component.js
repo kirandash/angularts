@@ -21,8 +21,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             BindingComponent = (function () {
                 function BindingComponent() {
                     this.title = "Star rating";
+                    this.title2 = "Twitter Like";
                     this.starActive = false; // Private property is made input property
                     // Alias in braket is optional
+                    this.starResult = 10;
+                    this.heartActive = false; // Private input property is made input property so that it can be used on favorite.template.html
                     //@Output('starChange') change = new EventEmitter(); // EventEmitter is a class used to publish events
                     this.change = new core_1.EventEmitter();
                 }
@@ -39,12 +42,26 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.starActive = !this.starActive;
                     this.change.emit({ newValue: this.starActive }); // publish an event and pass an object with current properties or pass null
                 };
+                BindingComponent.prototype.heartClick = function () {
+                    this.heartActive = !this.heartActive;
+                    this.starResult += this.heartActive ? 1 : -1;
+                    this.change.emit({ newVlaue: this.heartActive });
+                };
                 __decorate([
                     core_1.Input('star-active'), 
                     __metadata('design:type', Object)
                 ], BindingComponent.prototype, "starActive", void 0);
                 __decorate([
                     // Private property is made input property
+                    core_1.Input('star-result'), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "starResult", void 0);
+                __decorate([
+                    core_1.Input('heart-active'), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "heartActive", void 0);
+                __decorate([
+                    // Private input property is made input property so that it can be used on favorite.template.html
                     core_1.Output(), 
                     __metadata('design:type', Object)
                 ], BindingComponent.prototype, "change", void 0);
@@ -52,6 +69,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'favorite',
                         templateUrl: 'app/favorite.template.html',
+                        //inputs: ['starActive:star-active'],// alternate to using @Input decorator - Alias after colon is optional
+                        // outputs: ['change:starChange']
+                        // optional
+                        styles: [
+                            "\n\t\t\t.glyphicon-heart {\n\t\t\t\tfont-size: 30px;\n\t\t\t}\n\t\t\t.glyphicon-heart:hover {\n\t\t\t\tcursor: pointer;\n\t\t\t}\n\t\t\t.glyphicon-heart.active {\n\t\t\t\tcolor: deeppink;\n\t\t\t}\n\t\t"
+                        ]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

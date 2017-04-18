@@ -5,4 +5,10 @@
 	[class.glyphicon-star]="starActive"
 	(click)="starClick()" style="font-size:30px;">
 	</i>
+	<h1>{{title2}}</h1>
+	<i class="glyphicon glyphicon-heart"
+	[class.active]="heartActive"
+	(click)="heartClick()"
+	></i><!-- click event binding, class binding to heartActive -->
+	<span class="result">{{starResult}}</span>
 </div>

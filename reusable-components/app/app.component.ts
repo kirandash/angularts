@@ -5,8 +5,9 @@ import {BindingComponent} from './favorite.component'; // path of the module con
 // Decorator fn calling the object and using an object
 @Component({
     selector: 'my-app',
-    template: `<favorite [star-active]="post.starActive" (change)="onStarChange($event)"></favorite>
+    template: `
 		<i class="glyphicon glyphicon-star"></i>
+    	<favorite [star-active]="post.starActive" [heart-active]="tweet.heartActive" [star-result]="tweet.starResult" (change)="onStarChange($event)"></favorite>
     	`,
     directives: [BindingComponent],
     // Directive - a class that allows us to extend of control DOM (and not part of standard html)
@@ -25,8 +26,12 @@ import {BindingComponent} from './favorite.component'; // path of the module con
 export class AppComponent { 
 	post = {
 		title: "Title",
-		starActive: true
+		starActive: false
 	}// Post data assumed to come from service
+	tweet = {
+		starResult: 10,
+		heartActive: true
+	}
 	onStarChange($event){
 		console.log($event);
 	}

@@ -6,12 +6,29 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 	//inputs: ['starActive:star-active'],// alternate to using @Input decorator - Alias after colon is optional
 	// outputs: ['change:starChange']
 	// optional
+	styles: [
+		`
+			.glyphicon-heart {
+				font-size: 30px;
+			}
+			.glyphicon-heart:hover {
+				cursor: pointer;
+			}
+			.glyphicon-heart.active {
+				color: deeppink;
+			}
+		`
+	]
 })
 
 export class BindingComponent{
 	title = "Star rating";
+	title2 = "Twitter Like";
 	@Input('star-active') starActive = false; // Private property is made input property
 	// Alias in braket is optional
+	@Input('star-result') starResult = 10;
+
+	@Input('heart-active') heartActive = false; // Private input property is made input property so that it can be used on favorite.template.html
 
 	//@Output('starChange') change = new EventEmitter(); // EventEmitter is a class used to publish events
 	@Output() change = new EventEmitter();
@@ -28,5 +45,10 @@ export class BindingComponent{
 	starClick(){
 		this.starActive = !this.starActive;
 		this.change.emit({ newValue: this.starActive });// publish an event and pass an object with current properties or pass null
+	}
+	heartClick(){
+		this.heartActive = !this.heartActive;
+		this.starResult += this.heartActive ? 1 : -1;
+		this.change.emit({ newVlaue: this.heartActive });
 	}
 }

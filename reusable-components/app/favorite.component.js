@@ -26,6 +26,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     // Alias in braket is optional
                     this.starResult = 10;
                     this.heartActive = false; // Private input property is made input property so that it can be used on favorite.template.html
+                    this.voteCount = 5;
+                    this.voteFlag = 0;
                     //@Output('starChange') change = new EventEmitter(); // EventEmitter is a class used to publish events
                     this.change = new core_1.EventEmitter();
                 }
@@ -47,6 +49,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.starResult += this.heartActive ? 1 : -1;
                     this.change.emit({ newVlaue: this.heartActive });
                 };
+                BindingComponent.prototype.voteUp = function () {
+                    this.voteFlag += (this.voteFlag == 0 || this.voteFlag == -1) ? 1 : 0;
+                };
+                BindingComponent.prototype.voteDown = function () {
+                    this.voteFlag -= (this.voteFlag == 1 || this.voteFlag == 0) ? 1 : 0;
+                };
                 __decorate([
                     core_1.Input('star-active'), 
                     __metadata('design:type', Object)
@@ -62,6 +70,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 ], BindingComponent.prototype, "heartActive", void 0);
                 __decorate([
                     // Private input property is made input property so that it can be used on favorite.template.html
+                    core_1.Input('vote-count'), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "voteCount", void 0);
+                __decorate([
+                    core_1.Input('vote-flag'), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "voteFlag", void 0);
+                __decorate([
                     core_1.Output(), 
                     __metadata('design:type', Object)
                 ], BindingComponent.prototype, "change", void 0);
@@ -73,7 +89,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         // outputs: ['change:starChange']
                         // optional
                         styles: [
-                            "\n\t\t\t.glyphicon-heart {\n\t\t\t\tfont-size: 30px;\n\t\t\t}\n\t\t\t.glyphicon-heart:hover {\n\t\t\t\tcursor: pointer;\n\t\t\t}\n\t\t\t.glyphicon-heart.active {\n\t\t\t\tcolor: deeppink;\n\t\t\t}\n\t\t"
+                            "\n\t\t\t.glyphicon-heart {\n\t\t\t\tfont-size: 30px;\n\t\t\t}\n\t\t\t.glyphicon-heart:hover {\n\t\t\t\tcursor: pointer;\n\t\t\t}\n\t\t\t.glyphicon-heart.active {\n\t\t\t\tcolor: deeppink;\n\t\t\t}\n\t\t\t#vote-updown .glyphicon.active {\n\t\t\t\tcolor: orange;\n\t\t\t}\n\t\t\t.glyphicon {\n\t\t\t\tcursor: pointer;\n\t\t\t\tfont-size: 30px;\n\t\t\t}\n\t\t\tdiv {\n\t\t\t\tfont-size: 30px;\n\t\t\t\ttext-align: center;\n\t\t\t}\n\t\t"
                         ]
                     }), 
                     __metadata('design:paramtypes', [])

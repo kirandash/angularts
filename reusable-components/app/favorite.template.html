@@ -11,4 +11,16 @@
 	(click)="heartClick()"
 	></i><!-- click event binding, class binding to heartActive -->
 	<span class="result">{{starResult}}</span>
+	<div id="vote-updown">
+		<h3>Stackoverflow vote</h3>
+		<i class="glyphicon glyphicon-menu-up"
+		[class.active] = "voteFlag == 1"
+		(click)="voteUp()"
+		></i>
+		<div class="vote-count">{{voteCount + voteFlag}}</div>
+		<i class="glyphicon glyphicon-menu-down"
+		[class.active] = "voteFlag == -1"
+		(click)="voteDown()"
+		></i>
+	</div>
 </div>

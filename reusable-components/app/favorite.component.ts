@@ -17,6 +17,17 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 			.glyphicon-heart.active {
 				color: deeppink;
 			}
+			#vote-updown .glyphicon.active {
+				color: orange;
+			}
+			.glyphicon {
+				cursor: pointer;
+				font-size: 30px;
+			}
+			div {
+				font-size: 30px;
+				text-align: center;
+			}
 		`
 	]
 })
@@ -29,6 +40,10 @@ export class BindingComponent{
 	@Input('star-result') starResult = 10;
 
 	@Input('heart-active') heartActive = false; // Private input property is made input property so that it can be used on favorite.template.html
+
+	@Input('vote-count') voteCount = 5;
+
+	@Input('vote-flag') voteFlag = 0;
 
 	//@Output('starChange') change = new EventEmitter(); // EventEmitter is a class used to publish events
 	@Output() change = new EventEmitter();
@@ -50,5 +65,11 @@ export class BindingComponent{
 		this.heartActive = !this.heartActive;
 		this.starResult += this.heartActive ? 1 : -1;
 		this.change.emit({ newVlaue: this.heartActive });
+	}
+	voteUp(){
+		this.voteFlag += (this.voteFlag == 0 || this.voteFlag == -1) ? 1 : 0;
+	}
+	voteDown(){
+		this.voteFlag -= (this.voteFlag == 1 || this.voteFlag == 0) ? 1 : 0;
 	}
 }

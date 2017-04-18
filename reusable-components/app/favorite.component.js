@@ -52,7 +52,6 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'favorite',
                         templateUrl: 'app/favorite.template.html',
-                        inputs: ['starActive:star-active'],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BindingComponent);

@@ -3,7 +3,7 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 @Component({
 	selector: 'favorite',
 	templateUrl: 'app/favorite.template.html', // extra http request to download the template file - not with inline template
-	inputs: ['starActive:star-active'],// alternate to using @Input decorator - Alias after colon is optional
+	//inputs: ['starActive:star-active'],// alternate to using @Input decorator - Alias after colon is optional
 	// outputs: ['change:starChange']
 	// optional
 })

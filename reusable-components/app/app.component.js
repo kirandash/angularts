@@ -36,8 +36,12 @@ System.register(['angular2/core', './favorite.component'], function(exports_1, c
                     // path of the module containing courses component
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<favorite [star-active]="post.starActive" (change)="onStarChange($event)"></favorite>',
-                        directives: [favorite_component_1.BindingComponent]
+                        template: "<favorite [star-active]=\"post.starActive\" (change)=\"onStarChange($event)\"></favorite>\n\t\t<i class=\"glyphicon glyphicon-star\"></i>\n    \t",
+                        directives: [favorite_component_1.BindingComponent],
+                        // Directive - a class that allows us to extend of control DOM (and not part of standard html)
+                        styles: [
+                            "\n\t\t.glyphicon-star {\n\t\t\tcolor: orange;\n\t\t\tfont-size: 30px;\n\t\t}\n\t\t"
+                        ] // inline styles - only applied to the class in current component, not to components from outside modules
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

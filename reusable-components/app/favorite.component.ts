@@ -2,16 +2,7 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 @Component({
 	selector: 'favorite',
-	template: `
-				<div>
-				<h1>{{title}}</h1>
-				<i class="glyphicon" 
-				[class.glyphicon-star-empty]="!starActive"
-				[class.glyphicon-star]="starActive"
-				(click)="starClick()" style="font-size:30px;">
-				</i>
-				</div>
-			`,
+	templateUrl: 'app/favorite.template.html', // extra http request to download the template file - not with inline template
 	inputs: ['starActive:star-active'],// alternate to using @Input decorator - Alias after colon is optional
 	// outputs: ['change:starChange']
 	// optional

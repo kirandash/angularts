@@ -51,7 +51,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'favorite',
-                        template: "\n\t\t\t\t<div>\n\t\t\t\t<h1>{{title}}</h1>\n\t\t\t\t<i class=\"glyphicon\" \n\t\t\t\t[class.glyphicon-star-empty]=\"!starActive\"\n\t\t\t\t[class.glyphicon-star]=\"starActive\"\n\t\t\t\t(click)=\"starClick()\" style=\"font-size:30px;\">\n\t\t\t\t</i>\n\t\t\t\t</div>\n\t\t\t",
+                        templateUrl: 'app/favorite.template.html',
                         inputs: ['starActive:star-active'],
                     }), 
                     __metadata('design:paramtypes', [])

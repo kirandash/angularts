@@ -7,7 +7,15 @@ import {BindingComponent} from './favorite.component'; // path of the module con
     selector: 'my-app',
     template: `
 		<i class="glyphicon glyphicon-star"></i>
-    	<favorite [star-active]="post.starActive" [heart-active]="tweet.heartActive" [star-result]="tweet.starResult" (change)="onStarChange($event)"></favorite>
+    	<favorite 
+    		[star-active]="post.starActive" 
+    		[star-result]="tweet.starResult" 
+    		(change)="onStarChange($event)"
+    		[heart-active]="tweet.heartActive"
+    		[vote-count]="vote.voteCount"
+    		[vote-flag]="vote.voteFlag"
+    		(vote)="onVote($event)"
+    		></favorite>
     	`,
     directives: [BindingComponent],
     // Directive - a class that allows us to extend of control DOM (and not part of standard html)
@@ -32,7 +40,14 @@ export class AppComponent {
 		starResult: 10,
 		heartActive: true
 	}
+	vote = {
+		voteCount: 3,
+		voteFlag: 0
+	}
 	onStarChange($event){
 		console.log($event);
+	}
+	onVote($event){
+		console.log($event);	
 	}
 }

@@ -30,8 +30,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.voteFlag = 0;
                     //@Output('starChange') change = new EventEmitter(); // EventEmitter is a class used to publish events
                     this.change = new core_1.EventEmitter();
+                    // This is a private property. in order for it to be used outside the module - we must use the @Output decorator
+                    this.vote = new core_1.EventEmitter();
                 }
-                // This is a private property. in order for it to be used outside the module - we must use the @Output decorator
                 BindingComponent.prototype.onClick = function ($event) {
                     // events propagate from bottom to up in DOM tree
                     $event.stopPropagation();
@@ -50,10 +51,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.change.emit({ newVlaue: this.heartActive });
                 };
                 BindingComponent.prototype.voteUp = function () {
-                    this.voteFlag += (this.voteFlag == 0 || this.voteFlag == -1) ? 1 : 0;
+                    if (this.voteFlag == 1)
+                        return;
+                    this.voteFlag++;
+                    this.vote.emit({ voteFlag: this.voteFlag });
+                    //this.voteFlag += (this.voteFlag == 0 || this.voteFlag == -1) ? 1 : 0;
                 };
                 BindingComponent.prototype.voteDown = function () {
-                    this.voteFlag -= (this.voteFlag == 1 || this.voteFlag == 0) ? 1 : 0;
+                    if (this.voteFlag == -1)
+                        return;
+                    this.voteFlag--;
+                    this.vote.emit({ voteFlag: this.voteFlag });
+                    //this.voteFlag -= (this.voteFlag == 1 || this.voteFlag == 0) ? 1 : 0;
                 };
                 __decorate([
                     core_1.Input('star-active'), 
@@ -81,6 +90,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Output(), 
                     __metadata('design:type', Object)
                 ], BindingComponent.prototype, "change", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], BindingComponent.prototype, "vote", void 0);
                 BindingComponent = __decorate([
                     core_1.Component({
                         selector: 'favorite',

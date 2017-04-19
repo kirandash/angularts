@@ -49,6 +49,8 @@ export class BindingComponent{
 	@Output() change = new EventEmitter();
 	// This is a private property. in order for it to be used outside the module - we must use the @Output decorator
 
+	@Output() vote = new EventEmitter();
+
 	onClick($event){
 		// events propagate from bottom to up in DOM tree
 		$event.stopPropagation();
@@ -67,9 +69,18 @@ export class BindingComponent{
 		this.change.emit({ newVlaue: this.heartActive });
 	}
 	voteUp(){
-		this.voteFlag += (this.voteFlag == 0 || this.voteFlag == -1) ? 1 : 0;
+		if(this.voteFlag == 1)
+			return;
+		this.voteFlag++;
+
+		this.vote.emit({ voteFlag:this.voteFlag });
+		//this.voteFlag += (this.voteFlag == 0 || this.voteFlag == -1) ? 1 : 0;
 	}
 	voteDown(){
-		this.voteFlag -= (this.voteFlag == 1 || this.voteFlag == 0) ? 1 : 0;
+		if(this.voteFlag == -1)
+			return;
+		this.voteFlag--;
+		this.vote.emit({ voteFlag:this.voteFlag });
+		//this.voteFlag -= (this.voteFlag == 1 || this.voteFlag == 0) ? 1 : 0;
 	}
 }

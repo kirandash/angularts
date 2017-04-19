@@ -32,15 +32,22 @@ System.register(['angular2/core', './favorite.component'], function(exports_1, c
                         starResult: 10,
                         heartActive: true
                     };
+                    this.vote = {
+                        voteCount: 3,
+                        voteFlag: 0
+                    };
                 }
                 AppComponent.prototype.onStarChange = function ($event) {
+                    console.log($event);
+                };
+                AppComponent.prototype.onVote = function ($event) {
                     console.log($event);
                 };
                 AppComponent = __decorate([
                     // path of the module containing courses component
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t\t<i class=\"glyphicon glyphicon-star\"></i>\n    \t<favorite [star-active]=\"post.starActive\" [heart-active]=\"tweet.heartActive\" [star-result]=\"tweet.starResult\" (change)=\"onStarChange($event)\"></favorite>\n    \t",
+                        template: "\n\t\t<i class=\"glyphicon glyphicon-star\"></i>\n    \t<favorite \n    \t\t[star-active]=\"post.starActive\" \n    \t\t[star-result]=\"tweet.starResult\" \n    \t\t(change)=\"onStarChange($event)\"\n    \t\t[heart-active]=\"tweet.heartActive\"\n    \t\t[vote-count]=\"vote.voteCount\"\n    \t\t[vote-flag]=\"vote.voteFlag\"\n    \t\t(vote)=\"onVote($event)\"\n    \t\t></favorite>\n    \t",
                         directives: [favorite_component_1.BindingComponent],
                         // Directive - a class that allows us to extend of control DOM (and not part of standard html)
                         styles: [

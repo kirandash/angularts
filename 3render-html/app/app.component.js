@@ -21,11 +21,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             AppComponent = (function () {
                 function AppComponent() {
                     this.courses = [];
+                    this.viewMode = 'map'; // default value not required if ngSwitchDefault is used
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t\t<div *ngIf=\"courses.length > 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div [hidden]=\"courses.length == 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div *ngIf=\"courses.length == 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<div [hidden]=\"courses.length > 0\">\n\t\t\tNo courses yet\n\t\t</div>\n    " // ngIf does not render the html if condition is false - For large element tree
+                        template: "\n\t\t<h1>*ngIf and [hidden]</h1>\n\t\t<div *ngIf=\"courses.length > 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div [hidden]=\"courses.length == 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div *ngIf=\"courses.length == 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<div [hidden]=\"courses.length > 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<h1>ngSwitch, ngSwitchWhen, template and ngSwitchDefault</h1>\n\t\t<ul class=\"nav nav-pills\">\n\t\t\t<li [class.active]=\"viewMode == 'map'\"><a (click)=\"viewMode='map'\">Map view</a></li>\n\t\t\t<li [class.active]=\"viewMode == 'list'\"><a (click)=\"viewMode='list'\">Map view</a></li>\n\t\t</ul>\n\t\t<div [ngSwitch]=\"viewMode\">\n\t\t\t<template [ngSwitchWhen]=\"'map'\" >Map view content</template>\n\t\t\t<template [ngSwitchWhen]=\"'list'\" ngSwitchDefault>List view content</template>\n\t\t</div>\n    " // ngIf does not render the html if condition is false - For large element tree
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

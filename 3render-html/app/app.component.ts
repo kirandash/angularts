@@ -31,9 +31,19 @@ import {Component} from 'angular2/core';
 				{{ i+1 }} - {{ course }}
 			</li>
 		</ul>
+		<h1>*ngFor Asterisk</h1>
+		<p>sterisk transforms li into template element</p>
+		<ul>
+			<template ngFor [ngForOf]="courses2" #course #i=index>
+				<li>
+					{{ i+1 }} - {{ course }}
+				</li>
+			</template>
+		</ul>
     `// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
+     // Asterisk transforms li into template element
 })
 export class AppComponent { 
 	courses = [];

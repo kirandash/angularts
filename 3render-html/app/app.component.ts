@@ -40,14 +40,41 @@ import {Component} from 'angular2/core';
 				</li>
 			</template>
 		</ul>
+		<h1>Pipes</h1>
+		{{courses3.title | uppercase | lowercase}}
+		<br>
+		{{courses3.rating | number:'2.2-2'}}
+		{{courses3.rating2 | number:'2.2-2'}}
+		<br>
+		{{courses3.students | number}}
+		<br>
+		{{courses3.money | currency:'AUD':true:'2.2-2'}}
+		{{courses3.money | currency:'INR':false:'2.2-2'}}
+		<br>
+		{{courses3.date | date:'shortDate'}}
+		{{courses3.date | date:'MMM yyyy'}}
+		<br>
+		{{courses3 | json}}
     `// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
      // Asterisk transforms li into template element
+     // Number pipe for decimal operator
+     // number with parameter:'minimum digits.minimum digits - maximum digits'
+     // currency based on locale ('label':symbol:'format')
+     // the json pipe is used in development to quickly have a look at an object
 })
 export class AppComponent { 
 	courses = [];
 	viewMode = 'map'; // default value not required if ngSwitchDefault is used
 	// But it might not work with class binding so better to use viewMode check
 	courses2 = ['bio','maths','zoology'];
+	courses3 = {
+		title: "This is a title",
+		rating: 1.5,
+		rating2: 231.56945,
+		students: 56589,
+		money: 30000,
+		date: new Date(2017,3,2)
+	}
 }

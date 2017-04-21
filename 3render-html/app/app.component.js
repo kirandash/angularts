@@ -24,11 +24,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.viewMode = 'map'; // default value not required if ngSwitchDefault is used
                     // But it might not work with class binding so better to use viewMode check
                     this.courses2 = ['bio', 'maths', 'zoology'];
+                    this.courses3 = {
+                        title: "This is a title",
+                        rating: 1.5,
+                        rating2: 231.56945,
+                        students: 56589,
+                        money: 30000,
+                        date: new Date(2017, 3, 2)
+                    };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t\t<h1>*ngIf and [hidden]</h1>\n\t\t<div *ngIf=\"courses.length > 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div [hidden]=\"courses.length == 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div *ngIf=\"courses.length == 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<div [hidden]=\"courses.length > 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<h1>ngSwitch, ngSwitchWhen, template and ngSwitchDefault</h1>\n\t\t<ul class=\"nav nav-pills\">\n\t\t\t<li [class.active]=\"viewMode == 'map'\"><a (click)=\"viewMode='map'\">Map view</a></li>\n\t\t\t<li [class.active]=\"viewMode == 'list'\"><a (click)=\"viewMode='list'\">Map view</a></li>\n\t\t</ul>\n\t\t<div [ngSwitch]=\"viewMode\">\n\t\t\t<template [ngSwitchWhen]=\"'map'\" >Map view content</template>\n\t\t\t<template [ngSwitchWhen]=\"'list'\" ngSwitchDefault>List view content</template>\n\t\t</div>\n\t\t<h1>*ngFor and index</h1>\n\t\t<ul>\n\t\t\t<li *ngFor=\"#course of courses2, #i = index\">\n\t\t\t\t{{ i+1 }} - {{ course }}\n\t\t\t</li>\n\t\t</ul>\n\t\t<h1>*ngFor Asterisk</h1>\n\t\t<p>sterisk transforms li into template element</p>\n\t\t<ul>\n\t\t\t<template ngFor [ngForOf]=\"courses2\" #course #i=index>\n\t\t\t\t<li>\n\t\t\t\t\t{{ i+1 }} - {{ course }}\n\t\t\t\t</li>\n\t\t\t</template>\n\t\t</ul>\n    " // ngIf does not render the html if condition is false - For large element tree
+                        template: "\n\t\t<h1>*ngIf and [hidden]</h1>\n\t\t<div *ngIf=\"courses.length > 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div [hidden]=\"courses.length == 0\">\n\t\t\tList of courses\n\t\t</div>\n\t\t<div *ngIf=\"courses.length == 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<div [hidden]=\"courses.length > 0\">\n\t\t\tNo courses yet\n\t\t</div>\n\t\t<h1>ngSwitch, ngSwitchWhen, template and ngSwitchDefault</h1>\n\t\t<ul class=\"nav nav-pills\">\n\t\t\t<li [class.active]=\"viewMode == 'map'\"><a (click)=\"viewMode='map'\">Map view</a></li>\n\t\t\t<li [class.active]=\"viewMode == 'list'\"><a (click)=\"viewMode='list'\">Map view</a></li>\n\t\t</ul>\n\t\t<div [ngSwitch]=\"viewMode\">\n\t\t\t<template [ngSwitchWhen]=\"'map'\" >Map view content</template>\n\t\t\t<template [ngSwitchWhen]=\"'list'\" ngSwitchDefault>List view content</template>\n\t\t</div>\n\t\t<h1>*ngFor and index</h1>\n\t\t<ul>\n\t\t\t<li *ngFor=\"#course of courses2, #i = index\">\n\t\t\t\t{{ i+1 }} - {{ course }}\n\t\t\t</li>\n\t\t</ul>\n\t\t<h1>*ngFor Asterisk</h1>\n\t\t<p>sterisk transforms li into template element</p>\n\t\t<ul>\n\t\t\t<template ngFor [ngForOf]=\"courses2\" #course #i=index>\n\t\t\t\t<li>\n\t\t\t\t\t{{ i+1 }} - {{ course }}\n\t\t\t\t</li>\n\t\t\t</template>\n\t\t</ul>\n\t\t<h1>Pipes</h1>\n\t\t{{courses3.title | uppercase | lowercase}}\n\t\t<br>\n\t\t{{courses3.rating | number:'2.2-2'}}\n\t\t{{courses3.rating2 | number:'2.2-2'}}\n\t\t<br>\n\t\t{{courses3.students | number}}\n\t\t<br>\n\t\t{{courses3.money | currency:'AUD':true:'2.2-2'}}\n\t\t{{courses3.money | currency:'INR':false:'2.2-2'}}\n\t\t<br>\n\t\t{{courses3.date | date:'shortDate'}}\n\t\t{{courses3.date | date:'MMM yyyy'}}\n\t\t<br>\n\t\t{{courses3 | json}}\n    " // ngIf does not render the html if condition is false - For large element tree
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

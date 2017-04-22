@@ -5,6 +5,13 @@
 	[class.glyphicon-star]="starActive"
 	(click)="starClick()" style="font-size:30px;">
 	</i>
+	<i class="glyphicon" 
+	[ngClass]="{
+		'glyphicon-star-empty': !starActive,
+		'glyphicon-star': starActive
+	}"
+	(click)="starClick()" style="font-size:30px;">
+	</i>
 	<h1>{{title2}}</h1>
 	<i class="glyphicon glyphicon-heart"
 	[class.active]="heartActive"

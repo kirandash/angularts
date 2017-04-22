@@ -1,5 +1,7 @@
 import {Component} from 'angular2/core';
 
+import {SummaryPipe} from './summary.pipe';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -55,7 +57,13 @@ import {Component} from 'angular2/core';
 		{{courses3.date | date:'MMM yyyy'}}
 		<br>
 		{{courses3 | json}}
-    `// ngIf does not render the html if condition is false - For large element tree
+		<h1>Custom Pipes</h1>
+		{{post.title}}
+		<br>
+		{{post.content | summary:10 }}
+		<br>
+		{{post.content | summary:110 }}
+    `,// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
      // Asterisk transforms li into template element
@@ -63,6 +71,7 @@ import {Component} from 'angular2/core';
      // number with parameter:'minimum digits.minimum digits - maximum digits'
      // currency based on locale ('label':symbol:'format')
      // the json pipe is used in development to quickly have a look at an object
+     pipes: [SummaryPipe]
 })
 export class AppComponent { 
 	courses = [];
@@ -76,5 +85,9 @@ export class AppComponent {
 		students: 56589,
 		money: 30000,
 		date: new Date(2017,3,2)
+	}
+	post = {
+		title: "Post title here",
+		content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus venenatis mi eu egestas. Donec interdum interdum cursus. Nullam ex nunc, viverra non neque et, dignissim finibus nisi. Fusce nisl sem, commodo at dignissim at, consequat at ante. Etiam neque est, elementum at convallis eu, dictum nec nibh. Suspendisse potenti. In condimentum placerat elit in lobortis. Suspendisse sed nunc ullamcorper, pretium est non, blandit ex."
 	}
 }

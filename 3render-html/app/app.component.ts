@@ -63,6 +63,24 @@ import {SummaryPipe} from './summary.pipe';
 		{{post.content | summary:10 }}
 		<br>
 		{{post.content | summary:110 }}
+		<h1>ngStyle directive</h1>
+		<button
+			[style.backgroundColor]="canSave ? 'blue' : 'gray'"
+			[style.color]="canSave ? 'white' : 'black'"
+			[style.fontWeight]="canSave ? 'bold' : 'normal'"
+		>
+			Submit
+		</button>
+		<br>
+		<button
+			[ngStyle]="{
+				backgroundColor: canSave2 ? 'blue' : 'gray',
+				color: canSave2 ? 'white' : 'black',
+				fontWeight: canSave2 ? 'bold' : 'normal'
+			}"
+		>
+			Submit
+		</button>
     `,// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
@@ -90,4 +108,6 @@ export class AppComponent {
 		title: "Post title here",
 		content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus venenatis mi eu egestas. Donec interdum interdum cursus. Nullam ex nunc, viverra non neque et, dignissim finibus nisi. Fusce nisl sem, commodo at dignissim at, consequat at ante. Etiam neque est, elementum at convallis eu, dictum nec nibh. Suspendisse potenti. In condimentum placerat elit in lobortis. Suspendisse sed nunc ullamcorper, pretium est non, blandit ex."
 	}
+	canSave = false;
+	canSave2 = true;
 }

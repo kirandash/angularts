@@ -33,3 +33,9 @@ for binding events use (event) or on-event - preferred - (event)
 Angular does not have two way binding - it is just property and event binding. Angular uses flux structure which only supports one way binding
 
 Always try to keep the logic in component - good for unit testing
+
+## Template driven forms ##
+Less code but limited validation also
+
+Module driven forms
+More code and control over validation also

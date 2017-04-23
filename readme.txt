@@ -39,5 +39,9 @@ Less code but limited validation also
 
 There is a class Control for input fields of a form. ngControl directive is used to associate this Class to the input object
 
+Implicit control has only 3 validations - required, minlength and maxlength
+
+#firstName="ngForm" is a temporary variable implicitly created to have a reference for the input object
+
 Module driven forms
 More code and control over validation also

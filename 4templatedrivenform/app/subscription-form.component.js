@@ -1,4 +1,4 @@
-System.register(['angular2/core', './contact-form.component', './subscription-form.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,35 +10,36 @@ System.register(['angular2/core', './contact-form.component', './subscription-fo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contact_form_component_1, subscription_form_component_1;
-    var AppComponent;
+    var core_1;
+    var SubscriptionFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (contact_form_component_1_1) {
-                contact_form_component_1 = contact_form_component_1_1;
-            },
-            function (subscription_form_component_1_1) {
-                subscription_form_component_1 = subscription_form_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            SubscriptionFormComponent = (function () {
+                function SubscriptionFormComponent() {
+                    this.frequencies = [
+                        { id: 1, label: 'Daily' },
+                        { id: 2, label: 'Weekly' },
+                        { id: 3, label: 'Monthly' }
+                    ];
                 }
-                AppComponent = __decorate([
+                SubscriptionFormComponent.prototype.onSubscribe = function (form) {
+                    console.log(form.value);
+                };
+                SubscriptionFormComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        directives: [contact_form_component_1.ContactFormComponent, subscription_form_component_1.SubscriptionFormComponent],
-                        template: "\n\t\t<div class=\"container\">\n\t\t\t<contact-form></contact-form>\n\t\t\t<subscription-form></subscription-form>\n\t\t</div>\n    "
+                        selector: 'subscription-form',
+                        templateUrl: 'app/subscription-form.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], SubscriptionFormComponent);
+                return SubscriptionFormComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("SubscriptionFormComponent", SubscriptionFormComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=subscription-form.component.js.map

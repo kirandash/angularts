@@ -1,7 +1,14 @@
 import {Component} from 'angular2/core';
 
+import {ContactFormComponent} from './contact-form.component';
+
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    directives: [ContactFormComponent],
+    template: `
+		<div class="container">
+			<contact-form></contact-form>
+		</div>
+    `
 })
 export class AppComponent { }

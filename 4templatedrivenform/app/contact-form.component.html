@@ -9,5 +9,5 @@
 		<textarea ngControl="comment" #comment="ngForm" id="comment" cols="30" rows="10" class="form-control" required></textarea>
 		<div class="alert alert-danger" *ngIf="firstName.touched && !comment.valid">Comment is required</div>
 	</div>
-	<button class="btn btn-primary" type="submit">Submit</button>
+	<button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
 </form>

@@ -4,6 +4,8 @@ import {SummaryPipe} from './summary.pipe';
 
 import {BootstrapPanel} from './bootstrap.panel.component';
 
+import {ZippyComponent} from './zippy.component';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -95,9 +97,6 @@ import {BootstrapPanel} from './bootstrap.panel.component';
 			{{elvisData.assignee2.name}}
 		</li>
 		<li>
-			{{ elvisData.assignee2.name != null ? elvisData.assignee2.name : ""}}
-		</li>
-		<li>
 			{{ elvisData.assignee2?.roll?.name }}
 		</li>
 		</ul>
@@ -107,6 +106,13 @@ import {BootstrapPanel} from './bootstrap.panel.component';
 			<div class="body">This is the body</div>
 			<div class="body">This is another body</div>
 		</bs-panel>
+		<h1>Zippy component</h1>
+		<zippy title="This is the zippy title">
+			Content of the first zippy panel
+		</zippy>
+		<zippy title="This is the 2nd zippy title">
+			Content of the second zippy panel
+		</zippy>
     `,// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
@@ -117,7 +123,7 @@ import {BootstrapPanel} from './bootstrap.panel.component';
      // the json pipe is used in development to quickly have a look at an object
      // elvis operator is used to access nullable properties
      pipes: [SummaryPipe],
-     directives: [BootstrapPanel]
+     directives: [BootstrapPanel, ZippyComponent]
 })
 export class AppComponent { 
 	courses = [];

@@ -81,6 +81,24 @@ import {SummaryPipe} from './summary.pipe';
 		>
 			Submit
 		</button>
+		<h1>Elvis Operator</h1>
+		<ul>
+		<li>
+			{{elvisData.title}}
+		</li>
+		<li>
+			{{elvisData.assignee.name}}
+		</li>
+		<li *ngIf="elvisData.assignee2 != null">
+			{{elvisData.assignee2.name}}
+		</li>
+		<li>
+			{{ elvisData.assignee2.name != null ? elvisData.assignee2.name : ""}}
+		</li>
+		<li>
+			{{ elvisData.assignee2?.roll?.name }}
+		</li>
+		</ul>
     `,// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
@@ -89,6 +107,7 @@ import {SummaryPipe} from './summary.pipe';
      // number with parameter:'minimum digits.minimum digits - maximum digits'
      // currency based on locale ('label':symbol:'format')
      // the json pipe is used in development to quickly have a look at an object
+     // elvis operator is used to access nullable properties
      pipes: [SummaryPipe]
 })
 export class AppComponent { 
@@ -110,4 +129,11 @@ export class AppComponent {
 	}
 	canSave = false;
 	canSave2 = true;
+	elvisData = {
+		title: "Kiran Dash",
+		assignee: {
+			name: "KKD" 
+		},
+		assignee2: null
+	}
 }

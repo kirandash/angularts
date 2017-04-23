@@ -11,4 +11,4 @@ import {ContactFormComponent} from './contact-form.component';
 		</div>
     `
 })
-export class AppComponent { }
+export class AppComponent {  }

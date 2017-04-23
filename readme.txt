@@ -37,5 +37,7 @@ Always try to keep the logic in component - good for unit testing
 ## Template driven forms ##
 Less code but limited validation also
 
+There is a class Control for input fields of a form. ngControl directive is used to associate this Class to the input object
+
 Module driven forms
 More code and control over validation also

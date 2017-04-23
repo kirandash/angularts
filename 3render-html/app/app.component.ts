@@ -2,6 +2,8 @@ import {Component} from 'angular2/core';
 
 import {SummaryPipe} from './summary.pipe';
 
+import {BootstrapPanel} from './bootstrap.panel.component';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -99,6 +101,12 @@ import {SummaryPipe} from './summary.pipe';
 			{{ elvisData.assignee2?.roll?.name }}
 		</li>
 		</ul>
+		<h1>ng-content</h1>
+		<bs-panel>
+			<div class="heading">The Heading</div>
+			<div class="body">This is the body</div>
+			<div class="body">This is another body</div>
+		</bs-panel>
     `,// ngIf does not render the html if condition is false - For large element tree
      // hidden renders the html - For small element tree
      // ngIf not good if element is revealed and shown multiple times - poor performance
@@ -108,7 +116,8 @@ import {SummaryPipe} from './summary.pipe';
      // currency based on locale ('label':symbol:'format')
      // the json pipe is used in development to quickly have a look at an object
      // elvis operator is used to access nullable properties
-     pipes: [SummaryPipe]
+     pipes: [SummaryPipe],
+     directives: [BootstrapPanel]
 })
 export class AppComponent { 
 	courses = [];

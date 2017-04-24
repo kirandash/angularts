@@ -22,12 +22,11 @@ System.register(['angular2/core', 'angular2/common'], function(exports_1, contex
             }],
         execute: function() {
             SignUpFormComponent = (function () {
-                function SignUpFormComponent() {
-                    // Model Driven forms (Creating control explicitly whereas in template driven forms the controls are created in template implicitly)
-                    this.form = new common_1.ControlGroup({
-                        username: new common_1.Control('', common_1.Validators.required),
-                        password: new common_1.Control('', common_1.Validators.required) // default value, validators object
-                    });
+                function SignUpFormComponent(fb) {
+                    this.form = fb.group({
+                        username: ['', common_1.Validators.required],
+                        password: ['', common_1.Validators.required],
+                    }); // Storing the result of group method from FormBuilder class in form property of constructor
                 }
                 SignUpFormComponent.prototype.signup = function () {
                     console.log(this.form.value);
@@ -37,7 +36,7 @@ System.register(['angular2/core', 'angular2/common'], function(exports_1, contex
                         selector: 'signup-form',
                         templateUrl: 'app/signup-form.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [common_1.FormBuilder])
                 ], SignUpFormComponent);
                 return SignUpFormComponent;
             }());

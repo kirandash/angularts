@@ -1,4 +1,4 @@
-System.register(['angular2/core', './contact-form.component', './subscription-form.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './contact-form.component', './subscription-form.component', './signup-form.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './contact-form.component', './subscription-fo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contact_form_component_1, subscription_form_component_1;
+    var core_1, contact_form_component_1, subscription_form_component_1, signup_form_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', './contact-form.component', './subscription-fo
             },
             function (subscription_form_component_1_1) {
                 subscription_form_component_1 = subscription_form_component_1_1;
+            },
+            function (signup_form_component_1_1) {
+                signup_form_component_1 = signup_form_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -30,8 +33,8 @@ System.register(['angular2/core', './contact-form.component', './subscription-fo
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        directives: [contact_form_component_1.ContactFormComponent, subscription_form_component_1.SubscriptionFormComponent],
-                        template: "\n\t\t<div class=\"container\">\n\t\t\t<contact-form></contact-form>\n\t\t\t<subscription-form></subscription-form>\n\t\t</div>\n    "
+                        directives: [contact_form_component_1.ContactFormComponent, subscription_form_component_1.SubscriptionFormComponent, signup_form_component_1.SignUpFormComponent],
+                        template: "\n\t\t<div class=\"container\">\n\t\t\t<contact-form></contact-form>\n\t\t\t<subscription-form></subscription-form>\n\t\t\t<signup-form></signup-form>\n\t\t</div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

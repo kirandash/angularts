@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/common'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,17 +10,28 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, common_1;
     var SignUpFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
             SignUpFormComponent = (function () {
                 function SignUpFormComponent() {
+                    // Model Driven forms (Creating control explicitly whereas in template driven forms the controls are created in template implicitly)
+                    this.form = new common_1.ControlGroup({
+                        username: new common_1.Control('', common_1.Validators.required),
+                        password: new common_1.Control('', common_1.Validators.required) // default value, validators object
+                    });
                 }
+                SignUpFormComponent.prototype.signup = function () {
+                    console.log(this.form.value);
+                };
                 SignUpFormComponent = __decorate([
                     core_1.Component({
                         selector: 'signup-form',

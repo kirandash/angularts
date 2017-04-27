@@ -27,7 +27,7 @@ System.register(['angular2/core', 'angular2/common', './usernameValidators'], fu
             SignUpFormComponent = (function () {
                 function SignUpFormComponent(fb) {
                     this.form = fb.group({
-                        username: ['', common_1.Validators.compose([common_1.Validators.required, usernameValidators_1.UsernameValidators.cannotContainSpace])],
+                        username: ['', common_1.Validators.compose([common_1.Validators.required, usernameValidators_1.UsernameValidators.cannotContainSpace]), usernameValidators_1.UsernameValidators.shouldBeUnique],
                         password: ['', common_1.Validators.required],
                     }); // Storing the result of group method from FormBuilder class in form property of constructor
                 }

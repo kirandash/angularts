@@ -11,6 +11,9 @@
             >
         <div *ngIf="username.control.pending">Checking for uniqueness</div>    
         <div *ngIf="username.touched && username.errors">
+            <div *ngIf="username.errors.invalidLogin" class="alert alert-danger" >
+                Username or password is invalid
+            </div>
             <!-- <div class="alert alert-danger" *ngIf="!form.controls['username'].valid">Username is required</div> -->            
             <div class="alert alert-danger" *ngIf="username.errors.cannotContainSpace">Username can not contain space</div>
             <div class="alert alert-danger" *ngIf="username.errors.required">Username is required</div>

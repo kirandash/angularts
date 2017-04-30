@@ -38,7 +38,16 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                         debounced(text);
                     });*/
                     //new Observable();
-                    var keyups = Rx_1.Observable.fromEvent($("#search"), "keyup"); // Create static observable
+                    var keyups = Rx_1.Observable
+                        .fromEvent($("#search"), "keyup")
+                        .map(function (e) { return e.target.value; })
+                        .filter(function (text) { return text.length > 3; })
+                        .debounceTime(400)
+                        .distinctUntilChanged(); // Create static observable
+                    // Mapping is done to get just the value and not the entire DOM object
+                    // Filter - check if length > 3
+                    // Debounce is to listen to the events only after specific time
+                    // distinctUntilChanged - to listen to events only if it is changed
                     // subscribe to the observables
                     keyups.subscribe(function (data) { return console.log(data); });
                 }

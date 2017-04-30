@@ -1,7 +1,7 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Component} from 'angular2/core';
-// 
+// Reactive extensions - http://reactivex.io/rxjs/
 import {Observable} from 'rxjs/Rx';
 
 @Component({
@@ -27,7 +27,16 @@ export class AppComponent {
     	});*/
     	
     	//new Observable();
-    	var keyups = Observable.fromEvent($("#search"), "keyup"); // Create static observable
+    	var keyups = Observable
+    					.fromEvent($("#search"), "keyup")
+    					.map(e => e.target.value)
+    					.filter(text=>text.length > 3)
+    					.debounceTime(400)
+    					.distinctUntilChanged(); // Create static observable
+    	// Mapping is done to get just the value and not the entire DOM object
+    	// Filter - check if length > 3
+    	// Debounce is to listen to the events only after specific time
+    	// distinctUntilChanged - to listen to events only if it is changed
     	// subscribe to the observables
     	keyups.subscribe(data => console.log(data));
     }

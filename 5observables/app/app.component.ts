@@ -43,6 +43,8 @@ export class AppComponent {
     	// Debounce is to listen to the events only after specific time
     	// distinctUntilChanged - to listen to events only if it is changed
     	// subscribe to the observables
-    	keyups.subscribe(data => console.log(data));
+    	var subscription = keyups.subscribe(data => console.log(data));
+    	// Unsubscribe an observable
+    	subscription.unsubscribe(); // Application - user unsubscribing to notifications
     }
 }

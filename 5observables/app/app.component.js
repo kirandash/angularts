@@ -54,7 +54,9 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                     // Debounce is to listen to the events only after specific time
                     // distinctUntilChanged - to listen to events only if it is changed
                     // subscribe to the observables
-                    keyups.subscribe(function (data) { return console.log(data); });
+                    var subscription = keyups.subscribe(function (data) { return console.log(data); });
+                    // Unsubscribe an observable
+                    subscription.unsubscribe(); // Application - user unsubscribing to notifications
                 }
                 AppComponent = __decorate([
                     core_1.Component({

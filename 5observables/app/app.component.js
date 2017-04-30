@@ -43,7 +43,12 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                         .map(function (e) { return e.target.value; })
                         .filter(function (text) { return text.length > 3; })
                         .debounceTime(400)
-                        .distinctUntilChanged(); // Create static observable
+                        .distinctUntilChanged()
+                        .flatMap(function (searchTerm) {
+                        var url = "https://api.spotify.com/v1/search?type=artist&q=" + searchTerm;
+                        var promise = $.getJSON(url);
+                        return Rx_1.Observable.fromPromise(promise); // returns observable of observables, flatMap combines the observables list into a single list
+                    }); // Create static observable
                     // Mapping is done to get just the value and not the entire DOM object
                     // Filter - check if length > 3
                     // Debounce is to listen to the events only after specific time

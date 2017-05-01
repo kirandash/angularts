@@ -3,21 +3,26 @@
 import {Component} from 'angular2/core';
 // Reactive extensions - http://reactivex.io/rxjs/
 // The direct Rx import has lot of operators reduce it 
- import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Rx';
 // Stripped down observables created by angular team - few operators
 // import {Observable} from 'rxjs/observable';
 // import extra operator
 // import 'rxjs/add/operator/debounceTime';
 // import 'rxjs/add/operator/filter';
 
+import {PostService} from './post.service';
+// To avoid mentioning all the dependencies of http
+import {HTTP_PROVIDERS} from 'angular2/http';
+
 @Component({
     selector: 'my-app',
     template: `
         <input id="search" type="text" class="form-control">
-    `
+    `,
+    providers: [PostService, HTTP_PROVIDERS]// To avoid exception errors, include all the Classes and its dependencies
 })
 export class AppComponent {
-    constructor(){
+    constructor(private _postService: PostService){// Inject PostService Class
     	/*var debounced = _.debounce(function(){
     		var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;
     		$.getJSON(url, function(artists){
@@ -55,5 +60,10 @@ export class AppComponent {
 
     	// Importing Operators
     	console.log(new Observable);
+
+    	// Use PostService Class
+    	this._postService.getPosts()
+    		.subscribe(posts => console.log(posts));
+    	// returns array of posts objects
     }
 }

@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
+System.register(['angular2/core', 'rxjs/Rx', './post.service', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Rx_1;
+    var core_1, Rx_1, post_service_1, http_1;
     var AppComponent;
     return {
         setters:[
@@ -20,15 +20,16 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
             },
             function (Rx_1_1) {
                 Rx_1 = Rx_1_1;
+            },
+            function (post_service_1_1) {
+                post_service_1 = post_service_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
-            // Stripped down observables created by angular team - few operators
-            // import {Observable} from 'rxjs/observable';
-            // import extra operator
-            // import 'rxjs/add/operator/debounceTime';
-            // import 'rxjs/add/operator/filter';
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(_postService) {
                     /*var debounced = _.debounce(function(){
                         var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;
                         $.getJSON(url, function(artists){
@@ -42,6 +43,7 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                             return;
                         debounced(text);
                     });*/
+                    this._postService = _postService;
                     //new Observable();
                     var keyups = Rx_1.Observable
                         .fromEvent($("#search"), "keyup")
@@ -64,13 +66,18 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
                     subscription.unsubscribe(); // Application - user unsubscribing to notifications
                     // Importing Operators
                     console.log(new Rx_1.Observable);
+                    // Use PostService Class
+                    this._postService.getPosts()
+                        .subscribe(function (posts) { return console.log(posts); });
+                    // returns array of posts objects
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <input id=\"search\" type=\"text\" class=\"form-control\">\n    "
+                        template: "\n        <input id=\"search\" type=\"text\" class=\"form-control\">\n    ",
+                        providers: [post_service_1.PostService, http_1.HTTP_PROVIDERS] // To avoid exception errors, include all the Classes and its dependencies
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [post_service_1.PostService])
                 ], AppComponent);
                 return AppComponent;
             }());

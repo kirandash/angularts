@@ -45,3 +45,7 @@ Implicit control has only 3 validations - required, minlength and maxlength
 
 Module driven forms
 More code and control over validation also
+
+## Connecting to a server ##
+Http class
+get(), post(), put(), patch(), delete(), head()

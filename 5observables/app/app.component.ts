@@ -2,7 +2,13 @@
 
 import {Component} from 'angular2/core';
 // Reactive extensions - http://reactivex.io/rxjs/
-import {Observable} from 'rxjs/Rx';
+// The direct Rx import has lot of operators reduce it 
+// import {Observable} from 'rxjs/Rx';
+// Stripped down observables created by angular team - few operators
+import {Observable} from 'rxjs/observable';
+// import extra operator
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/filter';
 
 @Component({
     selector: 'my-app',
@@ -46,5 +52,8 @@ export class AppComponent {
     	var subscription = keyups.subscribe(data => console.log(data));
     	// Unsubscribe an observable
     	subscription.unsubscribe(); // Application - user unsubscribing to notifications
+
+    	// Importing Operators
+    	console.log(new Observable);
     }
 }

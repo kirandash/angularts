@@ -14,6 +14,9 @@ import {PostService} from './post.service';
 // To avoid mentioning all the dependencies of http
 import {HTTP_PROVIDERS} from 'angular2/http';
 
+// Importing components life cycle hooks to move the heavy code from constructor of post service
+import {OnInit} from 'angular2/core';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -21,7 +24,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
     `,
     providers: [PostService, HTTP_PROVIDERS]// To avoid exception errors, include all the Classes and its dependencies
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     constructor(private _postService: PostService){// Inject PostService Class
     	/*var debounced = _.debounce(function(){
     		var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;
@@ -62,8 +65,17 @@ export class AppComponent {
     	console.log(new Observable);
 
     	// Use PostService Class
-    	this._postService.getPosts()
-    		.subscribe(posts => console.log(posts));
+/*    	this._postService.getPosts()
+    		.subscribe(posts => console.log(posts));*/
     	// returns array of posts objects
+
+    	// In constructors we do light weight initializations and connection to server etc is done on OnInit method
+    }
+
+    // This method will be called when angular instantiates its component
+    ngOnInit(){
+    	// In constructors we do light weight initializations and connection to server etc is done on OnInit method
+    	this._postService.getPosts()
+    		.subscribe(posts => console.log(posts));    	
     }
 }

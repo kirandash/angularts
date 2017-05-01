@@ -67,10 +67,17 @@ System.register(['angular2/core', 'rxjs/Rx', './post.service', 'angular2/http'],
                     // Importing Operators
                     console.log(new Rx_1.Observable);
                     // Use PostService Class
+                    /*    	this._postService.getPosts()
+                                .subscribe(posts => console.log(posts));*/
+                    // returns array of posts objects
+                    // In constructors we do light weight initializations and connection to server etc is done on OnInit method
+                }
+                // This method will be called when angular instantiates its component
+                AppComponent.prototype.ngOnInit = function () {
+                    // In constructors we do light weight initializations and connection to server etc is done on OnInit method
                     this._postService.getPosts()
                         .subscribe(function (posts) { return console.log(posts); });
-                    // returns array of posts objects
-                }
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',

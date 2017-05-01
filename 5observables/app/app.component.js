@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-System.register(['angular2/core', 'rxjs/observable', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/filter'], function(exports_1, context_1) {
+System.register(['angular2/core', 'rxjs/Rx'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,19 +11,22 @@ System.register(['angular2/core', 'rxjs/observable', 'rxjs/add/operator/debounce
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, observable_1;
+    var core_1, Rx_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (observable_1_1) {
-                observable_1 = observable_1_1;
-            },
-            function (_1) {},
-            function (_2) {}],
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
+            }],
         execute: function() {
+            // Stripped down observables created by angular team - few operators
+            // import {Observable} from 'rxjs/observable';
+            // import extra operator
+            // import 'rxjs/add/operator/debounceTime';
+            // import 'rxjs/add/operator/filter';
             AppComponent = (function () {
                 function AppComponent() {
                     /*var debounced = _.debounce(function(){
@@ -40,7 +43,7 @@ System.register(['angular2/core', 'rxjs/observable', 'rxjs/add/operator/debounce
                         debounced(text);
                     });*/
                     //new Observable();
-                    var keyups = observable_1.Observable
+                    var keyups = Rx_1.Observable
                         .fromEvent($("#search"), "keyup")
                         .map(function (e) { return e.target.value; })
                         .filter(function (text) { return text.length > 3; })
@@ -49,7 +52,7 @@ System.register(['angular2/core', 'rxjs/observable', 'rxjs/add/operator/debounce
                         .flatMap(function (searchTerm) {
                         var url = "https://api.spotify.com/v1/search?type=artist&q=" + searchTerm;
                         var promise = $.getJSON(url);
-                        return observable_1.Observable.fromPromise(promise); // returns observable of observables, flatMap combines the observables list into a single list
+                        return Rx_1.Observable.fromPromise(promise); // returns observable of observables, flatMap combines the observables list into a single list
                     }); // Create static observable
                     // Mapping is done to get just the value and not the entire DOM object
                     // Filter - check if length > 3
@@ -60,7 +63,7 @@ System.register(['angular2/core', 'rxjs/observable', 'rxjs/add/operator/debounce
                     // Unsubscribe an observable
                     subscription.unsubscribe(); // Application - user unsubscribing to notifications
                     // Importing Operators
-                    console.log(new observable_1.Observable);
+                    console.log(new Rx_1.Observable);
                 }
                 AppComponent = __decorate([
                     core_1.Component({

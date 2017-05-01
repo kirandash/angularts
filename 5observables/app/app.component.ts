@@ -3,12 +3,12 @@
 import {Component} from 'angular2/core';
 // Reactive extensions - http://reactivex.io/rxjs/
 // The direct Rx import has lot of operators reduce it 
-// import {Observable} from 'rxjs/Rx';
+ import {Observable} from 'rxjs/Rx';
 // Stripped down observables created by angular team - few operators
-import {Observable} from 'rxjs/observable';
+// import {Observable} from 'rxjs/observable';
 // import extra operator
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/filter';
+// import 'rxjs/add/operator/debounceTime';
+// import 'rxjs/add/operator/filter';
 
 @Component({
     selector: 'my-app',

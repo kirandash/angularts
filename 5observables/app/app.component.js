@@ -80,10 +80,10 @@ System.register(['angular2/core', 'rxjs/Rx', './post.service', 'angular2/http'],
                     var _this = this;
                     // In constructors we do light weight initializations and connection to server etc is done on OnInit method
                     this._postService.getPosts()
-                        .subscribe(function (posts) {
+                        .then(function (posts) {
                         _this.isLoading = false;
                         console.log(posts[0].body);
-                    });
+                    }); // Converting observable to promise
                 };
                 AppComponent = __decorate([
                     core_1.Component({

@@ -1,6 +1,7 @@
 import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 // Import Injectable annotation
 import {Injectable} from 'angular2/core';
 // Import Post interface
@@ -16,7 +17,8 @@ export class PostService {
 
 	getPosts() : Observable<Post[]>{ // Changing observable type any to the Post interface for better type annotations on app.component.ts
 		return this._http.get(this._url)
-			.map(res => res.json()); // http returns Observable which is then mapped to get json value
+			.map(res => res.json()) // http returns Observable which is then mapped to get json value
+			.toPromise();
 	}
 
 	createPost(post: Post){

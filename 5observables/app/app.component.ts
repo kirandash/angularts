@@ -85,9 +85,9 @@ export class AppComponent implements OnInit {
     ngOnInit(){
     	// In constructors we do light weight initializations and connection to server etc is done on OnInit method
     	this._postService.getPosts()
-    		.subscribe(posts => {
+    		.then(posts => {
     			this.isLoading = false;
     			console.log(posts[0].body);
-    		});
+    		}); // Converting observable to promise
     }
 }

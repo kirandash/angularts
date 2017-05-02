@@ -70,12 +70,15 @@ export class AppComponent implements OnInit {
     	// returns array of posts objects
 
     	// In constructors we do light weight initializations and connection to server etc is done on OnInit method
+
+    	// this._postService.createPost(1); // this now has typechecker and will not allow 1
+    	this._postService.createPost({ userId: 1, title: 'a', body: 'b' }); // object is passed with optional id
     }
 
     // This method will be called when angular instantiates its component
     ngOnInit(){
     	// In constructors we do light weight initializations and connection to server etc is done on OnInit method
     	this._postService.getPosts()
-    		.subscribe(posts => console.log(posts));    	
+    		.subscribe(posts => console.log(posts[0].body));    	
     }
 }

@@ -88,7 +88,7 @@ System.register(['angular2/core', 'rxjs/Rx', './post.service', 'angular2/http'],
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <input id=\"search\" type=\"text\" class=\"form-control\">\n        <div *ngIf=\"isLoading\">Getting data...</div>\n        <div *ngIf=\"isLoading\">\n\t\t\t<i class=\"fa fa-spinner fa-spin fa-3x\"></i>\n        </div>\n    ",
+                        template: "\n        <input id=\"search\" type=\"text\" class=\"form-control\">\n        <div *ngIf=\"isLoading\">Getting data...</div>\n        <div *ngIf=\"isLoading\">\n\t\t\t<i class=\"fa fa-spinner fa-spin fa-3x\"></i>\n        </div>\n        <github-profile></github-profile>\n    ",
                         providers: [post_service_1.PostService, http_1.HTTP_PROVIDERS] // To avoid exception errors, include all the Classes and its dependencies
                     }), 
                     __metadata('design:paramtypes', [post_service_1.PostService])

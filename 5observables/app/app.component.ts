@@ -14,6 +14,8 @@ import {PostService} from './post.service';
 // To avoid mentioning all the dependencies of http
 import {HTTP_PROVIDERS} from 'angular2/http';
 
+import {GithubProfileComponent} from './github-profile.component';
+
 // Importing components life cycle hooks to move the heavy code from constructor of post service
 import {OnInit} from 'angular2/core';
 
@@ -25,6 +27,7 @@ import {OnInit} from 'angular2/core';
         <div *ngIf="isLoading">
 			<i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
+        <github-profile></github-profile>
     `,
     providers: [PostService, HTTP_PROVIDERS]// To avoid exception errors, include all the Classes and its dependencies
 })

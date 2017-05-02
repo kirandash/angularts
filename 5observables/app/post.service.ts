@@ -17,7 +17,7 @@ export class PostService {
 
 	getPosts() : Observable<Post[]>{ // Changing observable type any to the Post interface for better type annotations on app.component.ts
 		return this._http.get(this._url)
-			.map(res => res.json()) // http returns Observable which is then mapped to get json value
+			.map(res => res.json()) // http returns Observable which is then mapped to get json value 
 			.toPromise();
 	}
 

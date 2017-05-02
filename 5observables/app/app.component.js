@@ -44,6 +44,7 @@ System.register(['angular2/core', 'rxjs/Rx', './post.service', 'angular2/http'],
                         debounced(text);
                     });*/
                     this._postService = _postService;
+                    this.isLoading = true;
                     //new Observable();
                     var keyups = Rx_1.Observable
                         .fromEvent($("#search"), "keyup")
@@ -76,14 +77,18 @@ System.register(['angular2/core', 'rxjs/Rx', './post.service', 'angular2/http'],
                 }
                 // This method will be called when angular instantiates its component
                 AppComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     // In constructors we do light weight initializations and connection to server etc is done on OnInit method
                     this._postService.getPosts()
-                        .subscribe(function (posts) { return console.log(posts[0].body); });
+                        .subscribe(function (posts) {
+                        _this.isLoading = false;
+                        console.log(posts[0].body);
+                    });
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <input id=\"search\" type=\"text\" class=\"form-control\">\n    ",
+                        template: "\n        <input id=\"search\" type=\"text\" class=\"form-control\">\n        <div *ngIf=\"isLoading\">Getting data...</div>\n        <div *ngIf=\"isLoading\">\n\t\t\t<i class=\"fa fa-spinner fa-spin fa-3x\"></i>\n        </div>\n    ",
                         providers: [post_service_1.PostService, http_1.HTTP_PROVIDERS] // To avoid exception errors, include all the Classes and its dependencies
                     }), 
                     __metadata('design:paramtypes', [post_service_1.PostService])

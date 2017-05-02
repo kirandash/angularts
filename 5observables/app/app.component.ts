@@ -21,10 +21,16 @@ import {OnInit} from 'angular2/core';
     selector: 'my-app',
     template: `
         <input id="search" type="text" class="form-control">
+        <div *ngIf="isLoading">Getting data...</div>
+        <div *ngIf="isLoading">
+			<i class="fa fa-spinner fa-spin fa-3x"></i>
+        </div>
     `,
     providers: [PostService, HTTP_PROVIDERS]// To avoid exception errors, include all the Classes and its dependencies
 })
 export class AppComponent implements OnInit {
+    isLoading = true;
+
     constructor(private _postService: PostService){// Inject PostService Class
     	/*var debounced = _.debounce(function(){
     		var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;
@@ -79,6 +85,9 @@ export class AppComponent implements OnInit {
     ngOnInit(){
     	// In constructors we do light weight initializations and connection to server etc is done on OnInit method
     	this._postService.getPosts()
-    		.subscribe(posts => console.log(posts[0].body));    	
+    		.subscribe(posts => {
+    			this.isLoading = false;
+    			console.log(posts[0].body);
+    		});
     }
 }

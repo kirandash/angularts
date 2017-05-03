@@ -35,11 +35,12 @@ System.register(['angular2/core', 'angular2/router', './albums.component', './co
                     router_1.RouteConfig([
                         { path: '/albums', name: 'Albums', component: albums_component_1.AlbumsComponent, useAsDefault: true },
                         { path: '/contact', name: 'Contact', component: contact_component_1.ContactComponent },
-                        { path: '/*other', name: 'Other', redirectTo: ['Albums'] } // Wild card path that matches any name (*)
+                        { path: '/*other', name: 'Other', redirectTo: ['Albums'] } // Wild card path that matches any name (*) - This makes sure that any non-existent urls will redirect to albums path
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        templateUrl: '/app/app.component.html'
+                        templateUrl: '/app/app.component.html',
+                        directives: [router_1.RouterOutlet]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

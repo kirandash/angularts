@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './albums.component', './contact.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './albums.component', './album.component', './contact.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './albums.component', './co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, albums_component_1, contact_component_1;
+    var core_1, router_1, albums_component_1, album_component_1, contact_component_1;
     var AppComponent;
     return {
         setters:[
@@ -23,6 +23,9 @@ System.register(['angular2/core', 'angular2/router', './albums.component', './co
             function (albums_component_1_1) {
                 albums_component_1 = albums_component_1_1;
             },
+            function (album_component_1_1) {
+                album_component_1 = album_component_1_1;
+            },
             function (contact_component_1_1) {
                 contact_component_1 = contact_component_1_1;
             }],
@@ -33,7 +36,9 @@ System.register(['angular2/core', 'angular2/router', './albums.component', './co
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([
+                        // Route Definitions
                         { path: '/albums', name: 'Albums', component: albums_component_1.AlbumsComponent, useAsDefault: true },
+                        { path: '/albums/:id', name: 'Album', component: album_component_1.AlbumComponent },
                         { path: '/contact', name: 'Contact', component: contact_component_1.ContactComponent },
                         { path: '/*other', name: 'Other', redirectTo: ['Albums'] } // Wild card path that matches any name (*) - This makes sure that any non-existent urls will redirect to albums path
                     ]),

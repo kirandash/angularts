@@ -5,11 +5,14 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'; // Include all t
 
 // Imports for application components
 import {AlbumsComponent} from './albums.component';
+import {AlbumComponent} from './album.component';
 import {ContactComponent} from './contact.component';
 
 // Configure router
 @RouteConfig([
-	{ path: '/albums', name: 'Albums', component: AlbumsComponent, useAsDefault: true },
+	// Route Definitions
+	{ path: '/albums', name: 'Albums', component: AlbumsComponent, useAsDefault: true }, // Default route
+	{ path: '/albums/:id', name: 'Album', component: AlbumComponent },
 	{ path: '/contact', name: 'Contact', component: ContactComponent },
 	{ path: '/*other', name: 'Other', redirectTo: ['Albums'] }// Wild card path that matches any name (*) - This makes sure that any non-existent urls will redirect to albums path
 ])

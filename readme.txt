@@ -49,3 +49,8 @@ More code and control over validation also
 ## Connecting to a server ##
 Http class
 get(), post(), put(), patch(), delete(), head()
+
+## Routing ##
+1. Reference router script in index.html
+2. Set <base href="/">
+3. Register router providers

@@ -40,7 +40,8 @@ System.register(['angular2/core', 'angular2/router', './albums.component', './co
                     core_1.Component({
                         selector: 'my-app',
                         templateUrl: '/app/app.component.html',
-                        directives: [router_1.RouterOutlet]
+                        // directives: [RouterOutlet, RouterLink]
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

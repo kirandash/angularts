@@ -1,6 +1,7 @@
 // Angular imports (alphabetically)
 import {Component} from 'angular2/core';
-import {RouteConfig, RouterOutlet} from 'angular2/router';
+// import {RouteConfig, RouterOutlet, RouterLink} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'; // Include all the common Router Directives
 
 // Imports for application components
 import {AlbumsComponent} from './albums.component';
@@ -16,7 +17,8 @@ import {ContactComponent} from './contact.component';
 @Component({
     selector: 'my-app',
     templateUrl: '/app/app.component.html',
-    directives: [RouterOutlet]
+    // directives: [RouterOutlet, RouterLink]
+    directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent {
 }

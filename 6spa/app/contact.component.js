@@ -30,6 +30,13 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                     // Imperative Navigation with Router.navigate since routerLink can't be used here
                     this._router.navigate(['Albums']);
                 };
+                ContactComponent.prototype.routerCanDeactivate = function (next, previous) {
+                    //console.log("next", next);
+                    //console.log("previous", previous);
+                    //if(this.form.dirty)
+                    return confirm("Are you sure?");
+                    // If yes then current component can be deactivated and thus user can go to next page otherwise if no then current component stays activated and they stay on the same page
+                };
                 ContactComponent = __decorate([
                     core_1.Component({
                         templateUrl: '/app/contact.component.html'

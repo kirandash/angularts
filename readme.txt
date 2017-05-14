@@ -54,3 +54,6 @@ get(), post(), put(), patch(), delete(), head()
 1. Reference router script in index.html
 2. Set <base href="/">
 3. Register router providers
+
+# Directives
+ng new a2basics --prefix dir

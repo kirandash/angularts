@@ -1,0 +1,9 @@
+<h1>Attribues directives</h1>
+<h2>ngClass / ngStyle</h2>
+<!-- ngClass directive with multiple classes -->
+<div [ngClass]="{border: false, background: true}"></div>
+<div [ngClass]="{border: true, background: false}"></div>
+<!-- shortcut for single class with class property and dot operator -->
+<div [class.border]="true"></div>
+<!-- ngStyle must have property names in single quotes -->
+<div [ngStyle]="{'background-color': 'red'}"></div>

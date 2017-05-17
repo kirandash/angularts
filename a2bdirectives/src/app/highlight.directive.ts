@@ -1,6 +1,6 @@
 // import { Directive, Input, ElementRef, Renderer } from '@angular/core';
 
-import { Directive, Input, HostListener, HostBinding } from '@angular/core';
+import { Directive, Input, HostListener, HostBinding, OnInit } from '@angular/core';
 
 // Custom directive
 @Directive({
@@ -12,19 +12,27 @@ export class HighlightDirective {
 
   // HostListener and HostBinding meta data
   @HostListener('mouseenter') mouseover(){
-  	this.backgroundColor = 'green';
+  	this.backgroundColor = this.highlightColor;
   };
 
   @HostListener('mouseleave') mouseleave(){
-  	this.backgroundColor = 'white';
+  	this.backgroundColor = this.defaultColor;
   };
 
   @HostBinding('style.backgroundColor') get setColor() {
   	return this.backgroundColor;
   	// add backgroundcolor to style of the target
-  }
+  };
 
-  private backgroundColor = 'white';
+  // Directive property binding
+  @Input() defaultColor = 'green';
+  @Input() highlightColor = 'white';
+
+  @Input('dirHighlight') highlightColor2 = 'white';
+
+  //private backgroundColor = this.defaultColor;
+  private backgroundColor: string;
+  //private backgroundColor = 'white';
   // private elementRef: ElementRef; // Private to limit it only to this class
   /*constructor(private elementRef: ElementRef, private renderer: Renderer) {
   	// dependency injection to pass a reference of the current class to the element div where the directive is going to be bind
@@ -33,4 +41,9 @@ export class HighlightDirective {
   	this.renderer.setElementStyle(this.elementRef.nativeElement, 'background-color', 'green');
   }
   */
+
+  // OnInit to make sure the default color come from directive native element and not ts file
+  ngOnInit() {
+  	this.backgroundColor = this.defaultColor;
+  }
 }

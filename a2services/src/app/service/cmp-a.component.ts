@@ -24,7 +24,8 @@ import { DataService } from './data.service';
         <p>{{value}}</p>
     </div>
   `,
-  providers: [LogService, DataService] // The providers meta data tells angular which services to be used for this component
+  // providers: [LogService, DataService] // The providers meta data tells angular which services to be used for this component
+  providers: [LogService]
 })
 export class CmpAComponent {
     value = '';

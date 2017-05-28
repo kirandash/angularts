@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { LogService } from './log.service';
+import { DataService } from './data.service';
 
 @Component({
     moduleId: module.id,
@@ -23,12 +24,12 @@ import { LogService } from './log.service';
         <p>{{value}}</p>
     </div>
   `,
-  providers: [LogService] // The providers meta data tells angular which services to be used for this component
+  providers: [LogService, DataService] // The providers meta data tells angular which services to be used for this component
 })
 export class CmpAComponent {
     value = '';
 
-    constructor (private logService: LogService) {}
+    constructor (private logService: LogService, private dataService: DataService) {}
 
     items: string[] = [];
 
@@ -37,11 +38,12 @@ export class CmpAComponent {
     }
 
     onStore(value: string) {
- 
+      this.dataService.addData(value);
     }
 
     onGet() {
- 
+      // this.items = this.dataService.getData(); // This does live update
+      this.items = this.dataService.getData().slice(0);
     }
 
     onSend(value: string) {

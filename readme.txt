@@ -66,3 +66,5 @@ ng g s log
 
 Dependency injection can be done in 2 ways - multiple instances where the object or class is injected to individual components.
 - Single instance where the service is kept at root level/bootstrap level(The top most level)
+
+ng g s data

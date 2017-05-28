@@ -63,3 +63,6 @@ For DRY development: common actions are injected into services
 Use: 1. Provide, store and interact with data, 2. communication channel for components/classes, 3. other business logics access from various places in your app
 
 ng g s log
+
+Dependency injection can be done in 2 ways - multiple instances where the object or class is injected to individual components.
+- Single instance where the service is kept at root level/bootstrap level(The top most level)

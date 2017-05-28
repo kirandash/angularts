@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LogService } from './log.service';
+
 @Component({
     moduleId: module.id,
     selector: 'si-cmp-b',
@@ -19,13 +21,17 @@ import { Component, OnInit } from '@angular/core';
         <h3>Received Value</h3>
         <p>{{value}}</p>
     </div>
-  `
+  `,
+  providers: [LogService] // The providers meta data tells angular which services to be used for this component
 })
 export class CmpBComponent implements OnInit {
     value = '';
+
+    constructor(private logService: LogService){}
     items: string[] = [];
 
     onLog(value: string) {
+        this.logService.writeToLog(value);
     }
 
     onStore(value: string) {

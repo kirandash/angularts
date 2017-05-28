@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 // Injecting services into services
 import { LogService } from './log.service';
 
-@Injectable() // To inject service in service
+@Injectable() // To inject service in service - Decorators must be right before components or services class being declared
 
 export class DataService {
-
+	pushedData = new EventEmitter<string>();// A string data type will be pushed
   /*constructor() { }*/
   private data: string[] = [];
 
@@ -20,6 +20,10 @@ export class DataService {
   // Method to return the data array
   getData() {
   	return this.data;
+  }
+
+  pushData(value:string) {
+  	this.pushedData.emit(value);
   }
 
 }

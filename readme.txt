@@ -57,3 +57,9 @@ get(), post(), put(), patch(), delete(), head()
 
 # Directives
 ng new a2basics --prefix dir
+
+# Services
+For DRY development: common actions are injected into services
+Use: 1. Provide, store and interact with data, 2. communication channel for components/classes, 3. other business logics access from various places in your app
+
+ng g s log

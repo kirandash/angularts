@@ -24,7 +24,7 @@ import { DataService } from './data.service';
     </div>
   `,
   // providers: [LogService, DataService] // The providers meta data tells angular which services to be used for this component
-  providers: [LogService]
+  // providers: [LogService]
 })
 export class CmpBComponent implements OnInit {
     value = '';

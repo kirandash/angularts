@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CmpAComponent } from './service/cmp-a.component';
 import { CmpBComponent } from './service/cmp-b.component';
+
+import { LogService } from './service/log.service';
 import { DataService } from './service/data.service';
 
 @NgModule({
@@ -19,7 +21,7 @@ import { DataService } from './service/data.service';
     FormsModule,
     HttpModule
   ],
-  providers: [DataService], // Mentioning a global provider will create multiple instance of an object
+  providers: [LogService, DataService], // Mentioning a global provider will create multiple instance of an object
   bootstrap: [AppComponent]
 })
 export class AppModule { }

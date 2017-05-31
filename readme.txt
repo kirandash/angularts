@@ -68,3 +68,6 @@ Dependency injection can be done in 2 ways - multiple instances where the object
 - Single instance where the service is kept at root level/bootstrap level(The top most level)
 
 ng g s data
+
+# Routes
+ng new a2routes --rts

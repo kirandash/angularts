@@ -12,8 +12,14 @@ import { NgForm } from '@angular/forms';
   `]
 })
 export class TemplateDrivenComponent {
+	user = {
+		username: 'Kiran',
+		email: 'thekirankumardash@gmail.com',
+		password: 'testpassword'
+	}
 	onSubmit(form: NgForm) { // form data received from local variable and ngForm directive which is of type NgForm
 		// console.log('This form works');
-		console.log(form);
+		// console.log(form);
+		console.log(this.user);
 	}
 }

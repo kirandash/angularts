@@ -7,20 +7,22 @@
       <input type="text"
              class="form-control"
              id="username"
-             ngModel
+             [ngModel]="user.username"
              name="username"
              required="required"><!-- ngModel directive to register input for form. [ngModel] is used to bind with data. ngModel is used to tell angular that this field is a control -->
              <!-- The HTML name attrubute along witih ngModel helps us register the input -->
+             <!-- one way property binding : [ngModel]="user.username" -->
     </div>
     <div class="form-group">
       <label for="email">E-Mail</label>
       <input type="text"
              class="form-control"
              id="email"
-             ngModel
+             [ngModel]="user.email"
              name="email"
              required="required"
              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+             <!-- one way property binding : [ngModel]="user.username" helps us to set the default value for input -->
     </div>
   </div>
   <div class="form-group">
@@ -28,7 +30,7 @@
     <input type="password"
            class="form-control"
            id="password"
-           ngModel
+           [ngModel]="user.password"
            name="password"
            required="required">
   </div>

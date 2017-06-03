@@ -71,3 +71,11 @@ ng g s data
 
 # Routes
 ng new a2routes --rts
+
+# Forms
+
+Template driven and Data driven
+
+Template driven form: 
+
+ngModel must be used to tell angular that an input is registered in a form

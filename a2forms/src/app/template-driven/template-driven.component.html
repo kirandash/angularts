@@ -7,7 +7,7 @@
       <input type="text"
              class="form-control"
              id="username"
-             [ngModel]="user.username"
+             [(ngModel)]="user.username"
              name="username"
              required="required"><!-- ngModel directive to register input for form. [ngModel] is used to bind with data. ngModel is used to tell angular that this field is a control -->
              <!-- The HTML name attrubute along witih ngModel helps us register the input -->
@@ -18,7 +18,7 @@
       <input type="text"
              class="form-control"
              id="email"
-             [ngModel]="user.email"
+             [(ngModel)]="user.email"
              name="email"
              required="required"
              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
@@ -30,9 +30,10 @@
     <input type="password"
            class="form-control"
            id="password"
-           [ngModel]="user.password"
+           [(ngModel)]="user.password"
            name="password"
            required="required">
+           <!-- two way data binding : [(ngModel)]="user.username" helps us to set the default value for input and also change the value in target but note that we are not passing the form object which might have additional info -->
   </div>
   <div class="radio">
     <label>

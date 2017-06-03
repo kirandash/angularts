@@ -1,5 +1,6 @@
 <h1>Template Driven</h1>
-<form><!-- No action is required since it is an SPA -->
+<form (ngSubmit)="onSubmit(f)" #f="ngForm"><!-- No action is required since it is an SPA and thus ngSubmit event is used -->
+<!-- The local variable #f can be used to access the html of form tag but to get full controlled form ngForm directive is used -->
   <div>
     <div class="form-group">
       <label for="username">Username</label>

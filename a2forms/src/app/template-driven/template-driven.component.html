@@ -8,7 +8,8 @@
              class="form-control"
              id="username"
              ngModel
-             name="username"><!-- ngModel directive to register input for form. [ngModel] is used to bind with data. ngModel is used to tell angular that this field is a control -->
+             name="username"
+             required="required"><!-- ngModel directive to register input for form. [ngModel] is used to bind with data. ngModel is used to tell angular that this field is a control -->
              <!-- The HTML name attrubute along witih ngModel helps us register the input -->
     </div>
     <div class="form-group">
@@ -17,7 +18,9 @@
              class="form-control"
              id="email"
              ngModel
-             name="email">
+             name="email"
+             required="required"
+             pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
     </div>
   </div>
   <div class="form-group">
@@ -26,7 +29,8 @@
            class="form-control"
            id="password"
            ngModel
-           name="password">
+           name="password"
+           required="required">
   </div>
   <div class="radio">
     <label>

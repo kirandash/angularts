@@ -20,6 +20,7 @@ export class TemplateDrivenComponent {
 	onSubmit(form: NgForm) { // form data received from local variable and ngForm directive which is of type NgForm
 		// console.log('This form works');
 		// console.log(form);
-		console.log(this.user);
+		// console.log(this.user);
+		console.log(form.value);
 	}
 }

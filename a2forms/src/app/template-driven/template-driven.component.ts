@@ -15,8 +15,15 @@ export class TemplateDrivenComponent {
 	user = {
 		username: 'Kiran',
 		email: 'thekirankumardash@gmail.com',
-		password: 'testpassword'
-	}
+		password: 'testpassword',
+		gender: 'male'
+	};
+
+	genders = [
+		'male',
+		'female'
+	];
+
 	onSubmit(form: NgForm) { // form data received from local variable and ngForm directive which is of type NgForm
 		// console.log('This form works');
 		// console.log(form);

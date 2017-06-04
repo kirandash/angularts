@@ -21,8 +21,13 @@
              [(ngModel)]="user.email"
              name="email"
              required="required"
-             pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+             pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+             #email="ngModel">
              <!-- one way property binding : [ngModel]="user.username" helps us to set the default value for input -->
+             <!-- local variable #email gives reference only to the html tag. ngModel is used to give reference to the input control only -->
+      <div *ngIf="!email.valid">
+        This email is not valid
+      </div>       
     </div>
   </div>
   <div class="form-group">
@@ -45,5 +50,5 @@
       {{g}}
     </label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>

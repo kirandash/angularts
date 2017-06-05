@@ -16,4 +16,8 @@ export class DataDrivenComponent {
     		'password': new FormControl()
     	});
     }// note that for simpler forms constructor can be used bt for heavy complex forms, ngOnInit can be used
+
+    onSubmit() {
+    	console.log(this.myForm);
+    }
 }

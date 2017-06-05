@@ -14,6 +14,8 @@
                    class="form-control"
                    id="email"
                    formControlName="email">
+            <div *ngIf="!myForm.controls['email'].valid">Email id is not valid</div>    
+            <!-- Angular 2 controls['email'] replaced find() -->   
         </div>
     </div>
 
@@ -36,5 +38,6 @@
         </div>
     </div>
     <button type="button" class="btn btn-default">Add Hobby</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+    <!-- instead of using local variable the class from ts with type FormGroup is used -->
 </form>

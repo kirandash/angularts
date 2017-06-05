@@ -1,17 +1,19 @@
 <h1>Data Driven</h1>
-<form>
+<form [formGroup]="myForm"><!-- property binding to tell angular which form to use -->
     <div>
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text"
                    class="form-control"
-                   id="username">
+                   id="username"
+                   formControlName="username"><!-- formControlName defines which formcontrol to be used from ts file -->
         </div>
         <div class="form-group">
             <label for="email">E-Mail</label>
             <input type="text"
                    class="form-control"
-                   id="email">
+                   id="email"
+                   formControlName="email">
         </div>
     </div>
 
@@ -19,7 +21,8 @@
         <label for="password">Password</label>
         <input type="password"
                class="form-control"
-               id="password">
+               id="password"
+               formControlName="password">
     </div>
     <div class="radio">
         <label>

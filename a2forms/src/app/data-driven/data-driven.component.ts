@@ -9,13 +9,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class DataDrivenComponent {
     myForm: FormGroup; // creating the form using FormGroup unlike default angular template driven approach
     // defining the type of myForm variable as FormGroup
+
+    genders = [
+    	'male',
+    	'female'
+    ];
+
     constructor() {
     	this.myForm = new FormGroup({
     		'userData': new FormGroup({
 	    		'username': new FormControl('kirandash', Validators.required),// in template driven approach form control was automatically created by adding ngModel directive to input
 	    		'email': new FormControl('kiran@xhtmlchamps.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]),
     		}),
-    		'password': new FormControl('a345@30', Validators.required)// default value, validator, or array of validators
+    		'password': new FormControl('a345@30', Validators.required),// default value, validator, or array of validators
+    		'gender': new FormControl('male')
     	});
     }// note that for simpler forms constructor can be used bt for heavy complex forms, ngOnInit can be used
 

@@ -30,7 +30,7 @@ export class DataDrivenComponent {
 
     	this.myForm = formBuilder.group({
     		'userData': formBuilder.group({
-	    		'username': ['kirandash', Validators.required],// in template driven approach form control was automatically created by adding ngModel directive to input
+	    		'username': ['kirandash', [Validators.required, this.exampleValidator]],// in template driven approach form control was automatically created by adding ngModel directive to input
 	    		'email': ['kiran@xhtmlchamps.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]],
     		}),
     		'password': ['a345@30', Validators.required],// default value, validator, or array of validators
@@ -47,5 +47,13 @@ export class DataDrivenComponent {
 
     onSubmit() {
     	console.log(this.myForm);
+    }
+
+    // Custom validator funtion
+    exampleValidator(control: FormControl): {[s: string]: boolean} {
+    	if(control.value == 'Example'){
+    		return {example: true};// Returning means validation will fail
+    	}
+    	return null;// validation is successful - dont return boolean false - it wont work
     }
 }

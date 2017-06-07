@@ -40,6 +40,14 @@ export class DataDrivenComponent {
     			['Cooking', Validators.required]
     		])*/// array of form controls
     	});
+
+    	// Listening to status and value changes
+    	this.myForm.valueChanges.subscribe(
+    		(data: any)	=> console.log(data)
+    	);
+    	this.myForm.statusChanges.subscribe(
+    		(data: any)	=> console.log(data)
+    	);
     }// note that for simpler forms constructor can be used bt for heavy complex forms, ngOnInit can be used
 
     /*onAddHobby(){

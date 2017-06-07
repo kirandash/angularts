@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
     moduleId: module.id,
@@ -33,7 +34,7 @@ export class DataDrivenComponent {
 	    		'username': ['kirandash', [Validators.required, this.exampleValidator]],// in template driven approach form control was automatically created by adding ngModel directive to input
 	    		'email': ['kiran@xhtmlchamps.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]],
     		}),
-    		'password': ['a345@30', Validators.required],// default value, validator, or array of validators
+    		'password': ['a345@30', Validators.required, this.asyncExampleValidator],// default value, validator, or array of validators
     		'gender': ['male'],
     		/*'hobbies': formBuilder.array([
     			['Cooking', Validators.required]
@@ -55,5 +56,22 @@ export class DataDrivenComponent {
     		return {example: true};// Returning means validation will fail
     	}
     	return null;// validation is successful - dont return boolean false - it wont work
+    }
+
+    // Custom asynchronous validator
+    asyncExampleValidator(control: FormControl): Promise<any> | Observable<any> {
+    	// an observable is there to make sure that a certain value can be observed
+    	const promise = new Promise<any>(
+    		(resolve, reject) => {
+    			setTimeout(()=>{
+    				if(control.value === 'Example'){
+    					resolve({'invalid': true}); // validation failed
+    				}else{
+    					resolve(null); // validation is successful 
+    				}
+    			}, 1500);
+    		}
+    	);
+    	return promise;
     }
 }
